@@ -1,0 +1,128 @@
+---
+title: Retrieving data from WHO-DON website
+author: Luong Nguyen Thanh
+---
+
+## Load necessary packages
+
+```{r}
+pacman::p_load(
+  rio,
+  here,
+  httr,
+  jsonlite,
+  stringr,
+  tidyverse)
+```
+
+## Write a function to get data from WHO-DON website
+
+Using method GET from `httr` package to get data from WHO-DON website. The function `get_who_news` will take a URL as input and return the data from the API. The function will return `NULL` if the request was unsuccessful.
+
+Status code = 200 means the connection is successful. The function will parse the JSON content and return the data.
+
+Next, we will initialize the variables and loop to fetch all pages. The function will check if there is a next page link and keep fetching until there is no next page link.
+
+```{r}
+#| message: false
+#| warning: false
+#| eval: false
+
+# Function to get news data from a specific URL
+get_who_news <- function(url) {
+  # Make the GET request to the API
+  response <- GET(url)
+  
+  # Check the status of the response
+  if (status_code(response) == 200) {
+    # Parse the JSON content
+    content <- content(response, "text")
+    data <- fromJSON(content)
+    return(data)
+  } else {
+    # Return NULL if the request was unsuccessful
+    return(NULL)
+  }
+}
+
+# Initialize variables
+base_url <- "https://www.who.int/api/news/diseaseoutbreaknews"
+all_news <- list()
+next_url <- base_url
+keep_fetching <- TRUE
+
+# Loop to fetch all pages
+while (keep_fetching) {
+  data <- get_who_news(next_url)
+  
+  if (!is.null(data) && "value" %in% names(data)) {
+    all_news <- c(all_news, data$value)
+    
+    # Check if there is a next page link
+    if ("@odata.nextLink" %in% names(data)) {
+      next_url <- data[["@odata.nextLink"]]
+    } else {
+      keep_fetching <- FALSE
+    }
+  } else {
+    keep_fetching <- FALSE
+  }
+}
+```
+
+## Convert data from list to wide dataframe
+
+The data is currently stored as a nested list. We will convert this nested list to a wide data frame for further analysis. We will define a function `convert_to_df` that takes the nested list as input and returns a data frame.
+
+Some cleaning steps are performed to remove HTML tags from the text data.
+
+Finally, we will export the data frame to a CSV file for further analysis.
+
+```{r}
+#| eval: false
+# Define a function to convert the nested list to a data frame
+convert_to_df <- function(news_list) {
+  # Initialize an empty list to hold data frames
+  df_list <- list()
+  
+  # Determine the segment length
+  segment_length <- 22
+  
+  # Iterate through the list in steps of segment_length
+  for (i in seq(1, length(news_list), by = segment_length)) {
+    # Extract the current segment
+    segment <- news_list[i:(i + segment_length - 1)]
+    
+    # Convert the segment to a data frame and add it to the list
+    df_list[[length(df_list) + 1]] <- as.data.frame(segment)
+  }
+  
+  # Combine all data frames into one
+  combined_df <- do.call(rbind, df_list)
+  return(combined_df)
+}
+
+# Function to remove HTML tags
+remove_html_tags <- function(text) {
+  return(str_replace_all(text, "<[^>]*>", ""))
+}
+
+all_news_df <- convert_to_df(all_news)
+
+
+all_news_df %>% 
+  mutate(across(where(is.character), remove_html_tags)) %>%
+  arrange(desc(PublicationDate)) %>%
+  rio::export(here("data", "who_dons.csv"))
+```
+
+## Preview data
+
+```{r, echo=FALSE}
+all_news_df <- import(here("data", "who_dons.csv"))
+```
+
+
+```{r}
+glimpse(all_news_df)
+```
