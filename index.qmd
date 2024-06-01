@@ -45,7 +45,7 @@ number-sections: true
 
 ## Methods {#sec-methods}
 
-Example of database from [@carlson2023]
+Data retrieved from WHO-DON can merge with data from [@carlson2023]
 
 ## Results {#sec-results}
 
