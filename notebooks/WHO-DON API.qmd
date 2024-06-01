@@ -24,9 +24,9 @@ Status code = 200 means the connection is successful. The function will parse th
 Next, we will initialize the variables and loop to fetch all pages. The function will check if there is a next page link and keep fetching until there is no next page link.
 
 ```{r}
-#| message: false
-#| warning: false
-#| eval: false
+#| message: FALSE
+#| warning: FALSE
+#| eval: FALSE
 
 # Function to get news data from a specific URL
 get_who_news <- function(url) {
@@ -79,7 +79,7 @@ Some cleaning steps are performed to remove HTML tags from the text data.
 Finally, we will export the data frame to a CSV file for further analysis.
 
 ```{r}
-#| eval: false
+#| eval: FALSE
 # Define a function to convert the nested list to a data frame
 convert_to_df <- function(news_list) {
   # Initialize an empty list to hold data frames
@@ -118,7 +118,8 @@ all_news_df %>%
 
 ## Preview data
 
-```{r, echo=FALSE}
+```{r}
+#| echo: FALSE
 all_news_df <- import(here("data", "who_dons.csv"))
 ```
 
