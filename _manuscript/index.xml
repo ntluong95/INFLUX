@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving
+and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
+
+<article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" dtd-version="1.2" article-type="other">
+
+<front>
+<journal-meta>
+<journal-id></journal-id>
+
+<journal-title-group>
+<journal-title>TBD</journal-title>
+</journal-title-group>
+<issn></issn>
+
+<publisher>
+<publisher-name></publisher-name>
+</publisher>
+</journal-meta>
+
+
+<article-meta>
+
+
+<title-group>
+<article-title>Emerging Pest and Pathogens (EPP)</article-title>
+</title-group>
+
+<contrib-group>
+<contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">0000-0002-2621-378X</contrib-id>
+<name>
+<surname>Jørgensen</surname>
+<given-names>Peter Søgaard</given-names>
+</name>
+<string-name>Peter Søgaard Jørgensen</string-name>
+
+<email>peter.sogaard.jorgensen@su.se</email>
+<xref ref-type="aff" rid="swedesd">a</xref>
+<xref ref-type="aff" rid="gedb">b</xref>
+<xref ref-type="aff" rid="src">c</xref>
+<xref ref-type="corresp" rid="cor-1">&#x002A;</xref>
+</contrib>
+<contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">0000-0002-9270-9345</contrib-id>
+<name>
+<surname>Thanh</surname>
+<given-names>Luong Nguyen</given-names>
+</name>
+<string-name>Luong Nguyen Thanh</string-name>
+
+<email>nguyen.luong@uu.se</email>
+<xref ref-type="aff" rid="swedesd">a</xref>
+<xref ref-type="aff" rid="gedb">b</xref>
+<xref ref-type="aff" rid="uac">d</xref>
+</contrib>
+</contrib-group>
+<aff id="swedesd">
+<institution-wrap>
+<institution>SWEDESD – Sustainability Learning and Research Center,
+Department of Women’s and Children’s Health, Uppsala University,
+Uppsala, Sweden</institution>
+</institution-wrap>
+
+
+
+
+
+
+
+</aff>
+<aff id="gedb">
+<institution-wrap>
+<institution>Global Economic Dynamics and the Biosphere, Royal Swedish
+Academy of Sciences, Stockholm, Sweden</institution>
+</institution-wrap>
+
+
+
+
+
+
+
+</aff>
+<aff id="src">
+<institution-wrap>
+<institution>Stockholm Resilience Centre, Stockholm University,
+Stockholm, Sweden</institution>
+</institution-wrap>
+
+
+
+
+
+
+
+</aff>
+<aff id="uac">
+<institution-wrap>
+<institution>Uppsala Antibiotic Centre (UAC), Uppsala
+University</institution>
+</institution-wrap>
+
+
+
+
+
+
+
+</aff>
+<author-notes>
+<corresp id="cor-1">peter.sogaard.jorgensen@su.se</corresp>
+</author-notes>
+
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-05-31">
+<year>2024</year>
+<month>5</month>
+<day>31</day>
+</pub-date>
+
+
+
+
+
+
+
+<history></history>
+
+
+<abstract>
+<p>Emerging pests and pathogens (EPPs) are an increasingly disruptive
+force to human society that can cause large social and ecological
+changes far beyond their initial site of emergence. Three forces
+contribute to this growing challenge now and in the foreseeable future:
+first, potential EPPs are more likely to come in to first contact with
+human habitats as human land use expands. Second, denser human trade and
+travel networks mean that EPPs are more likely to emerge in new regions.
+Third, human technology, such as biocidal agents, increases risks for
+re-emergence. Understanding how EPPs cascade across scales in
+social-ecological systems is therefore an urgent priority, but no formal
+approach currently exists for analysing the ripple effects at scale,
+from their seeding to their lasting societal imprints. This project aims
+to fill this gap in sustainability science for society.</p>
+</abstract>
+<kwd-group kwd-group-type="author">
+<kwd>EPP</kwd>
+<kwd>drivers</kwd>
+</kwd-group>
+
+
+
+
+</article-meta>
+
+</front>
+
+<body>
+<sec id="sec-introduction">
+  <title>1 Introduction</title>
+</sec>
+<sec id="sec-methods">
+  <title>2 Methods</title>
+  <p>Example of database from
+  (<xref alt="Carlson et al. 2023" rid="ref-carlson2023" ref-type="bibr">Carlson
+  et al. 2023</xref>)</p>
+</sec>
+<sec id="sec-results">
+  <title>3 Results</title>
+</sec>
+<sec id="sec-discussion">
+  <title>4 Discussion</title>
+</sec>
+<sec id="sec-conclusion">
+  <title>5 Conclusion</title>
+</sec>
+</body>
+
+<back>
+<ref-list>
+  <title>6 References</title>
+  <ref id="ref-carlson2023">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Carlson</surname><given-names>Colin J.</given-names></name>
+        <name><surname>Boyce</surname><given-names>Matthew R.</given-names></name>
+        <name><surname>Dunne</surname><given-names>Margaret</given-names></name>
+        <name><surname>Graeden</surname><given-names>Ellie</given-names></name>
+        <name><surname>Lin</surname><given-names>Jessica</given-names></name>
+        <name><surname>Abdellatif</surname><given-names>Yasser Omar</given-names></name>
+        <name><surname>Palys</surname><given-names>Max A.</given-names></name>
+        <name><surname>Pavez</surname><given-names>Munir</given-names></name>
+        <name><surname>Phelan</surname><given-names>Alexandra L.</given-names></name>
+        <name><surname>Katz</surname><given-names>Rebecca</given-names></name>
+      </person-group>
+      <article-title>The World Health Organization’s Disease Outbreak News: A retrospective database</article-title>
+      <source>PLOS Global Public Health</source>
+      <person-group person-group-type="editor">
+        <name><surname>Mendez</surname><given-names>Claudio A.</given-names></name>
+      </person-group>
+      <year iso-8601-date="2023-01-25">2023</year><month>01</month><day>25</day>
+      <volume>3</volume>
+      <issue>1</issue>
+      <uri>http://dx.doi.org/10.1371/journal.pgph.0001083</uri>
+      <pub-id pub-id-type="doi">10.1371/journal.pgph.0001083</pub-id>
+      <fpage>e0001083</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+</ref-list>
+</back>
+
+<sub-article article-type="notebook" id="nb-3-nb-1">
+<front-stub>
+<title-group>
+<article-title>Retrieving data from WHO-DON website</article-title>
+</title-group>
+<contrib-group>
+<contrib contrib-type="author">
+<name>
+<surname>Thanh</surname>
+<given-names>Luong Nguyen</given-names>
+</name>
+<string-name>Luong Nguyen Thanh</string-name>
+
+</contrib>
+</contrib-group>
+</front-stub>
+
+<body>
+<sec id="load-necessary-packages-nb-1">
+  <title>Load necessary packages</title>
+  <sec id="nb-code-cell-1-nb-1" specific-use="notebook-code">
+  <code language="r script">pacman::p_load(
+  rio,
+  here,
+  httr,
+  jsonlite,
+  stringr,
+  tidyverse)
+  </code>
+  </sec>
+</sec>
+<sec id="write-a-function-to-get-data-from-who-don-website-nb-1">
+  <title>Write a function to get data from WHO-DON website</title>
+  <p>Using method GET from <monospace>httr</monospace> package to get
+  data from WHO-DON website. The function
+  <monospace>get_who_news</monospace> will take a URL as input and
+  return the data from the API. The function will return
+  <monospace>NULL</monospace> if the request was unsuccessful.</p>
+  <p>Status code = 200 means the connection is successful. The function
+  will parse the JSON content and return the data.</p>
+  <p>Next, we will initialize the variables and loop to fetch all pages.
+  The function will check if there is a next page link and keep fetching
+  until there is no next page link.</p>
+  <sec id="nb-code-cell-2-nb-1" specific-use="notebook-code">
+  <code language="r script">
+# Function to get news data from a specific URL
+get_who_news &lt;- function(url) {
+  # Make the GET request to the API
+  response &lt;- GET(url)
+  
+  # Check the status of the response
+  if (status_code(response) == 200) {
+    # Parse the JSON content
+    content &lt;- content(response, &quot;text&quot;)
+    data &lt;- fromJSON(content)
+    return(data)
+  } else {
+    # Return NULL if the request was unsuccessful
+    return(NULL)
+  }
+}
+
+# Initialize variables
+base_url &lt;- &quot;https://www.who.int/api/news/diseaseoutbreaknews&quot;
+all_news &lt;- list()
+next_url &lt;- base_url
+keep_fetching &lt;- TRUE
+
+# Loop to fetch all pages
+while (keep_fetching) {
+  data &lt;- get_who_news(next_url)
+  
+  if (!is.null(data) &amp;&amp; &quot;value&quot; %in% names(data)) {
+    all_news &lt;- c(all_news, data$value)
+    
+    # Check if there is a next page link
+    if (&quot;@odata.nextLink&quot; %in% names(data)) {
+      next_url &lt;- data[[&quot;@odata.nextLink&quot;]]
+    } else {
+      keep_fetching &lt;- FALSE
+    }
+  } else {
+    keep_fetching &lt;- FALSE
+  }
+}
+  </code>
+  </sec>
+</sec>
+<sec id="convert-data-from-list-to-wide-dataframe-nb-1">
+  <title>Convert data from list to wide dataframe</title>
+  <p>The data is currently stored as a nested list. We will convert this
+  nested list to a wide data frame for further analysis. We will define
+  a function <monospace>convert_to_df</monospace> that takes the nested
+  list as input and returns a data frame.</p>
+  <p>Some cleaning steps are performed to remove HTML tags from the text
+  data.</p>
+  <p>Finally, we will export the data frame to a CSV file for further
+  analysis.</p>
+  <sec id="nb-code-cell-3-nb-1" specific-use="notebook-code">
+  <code language="r script"># Define a function to convert the nested list to a data frame
+convert_to_df &lt;- function(news_list) {
+  # Initialize an empty list to hold data frames
+  df_list &lt;- list()
+  
+  # Determine the segment length
+  segment_length &lt;- 22
+  
+  # Iterate through the list in steps of segment_length
+  for (i in seq(1, length(news_list), by = segment_length)) {
+    # Extract the current segment
+    segment &lt;- news_list[i:(i + segment_length - 1)]
+    
+    # Convert the segment to a data frame and add it to the list
+    df_list[[length(df_list) + 1]] &lt;- as.data.frame(segment)
+  }
+  
+  # Combine all data frames into one
+  combined_df &lt;- do.call(rbind, df_list)
+  return(combined_df)
+}
+
+# Function to remove HTML tags
+remove_html_tags &lt;- function(text) {
+  return(str_replace_all(text, &quot;&lt;[^&gt;]*&gt;&quot;, &quot;&quot;))
+}
+
+all_news_df &lt;- convert_to_df(all_news)
+
+
+all_news_df %&gt;% 
+  mutate(across(where(is.character), remove_html_tags)) %&gt;%
+  arrange(desc(PublicationDate)) %&gt;%
+  rio::export(here(&quot;data&quot;, &quot;who_dons.csv&quot;))
+  </code>
+  </sec>
+</sec>
+<sec id="preview-data-nb-1">
+  <title>Preview data</title>
+  <sec id="nb-code-cell-4-nb-1" specific-use="notebook-code">
+  <code language="r script">all_news_df &lt;- import(here(&quot;data&quot;, &quot;who_dons.csv&quot;))
+  </code>
+  </sec>
+  <sec id="nb-code-cell-5-nb-1" specific-use="notebook-code">
+  <code language="r script">glimpse(all_news_df)
+  </code>
+  <sec id="nb-code-cell-5-output-0-nb-1" specific-use="notebook-output">
+  <preformat>Rows: 3,102
+Columns: 22
+$ Id                     &lt;chr&gt; &quot;8c8a4612-7d82-4e67-adb8-e1bc9aa69c4b&quot;, &quot;696077…
+$ LastModified           &lt;dttm&gt; 2024-05-30 14:31:48, 2024-05-16 14:53:26, 2024…
+$ PublicationDate        &lt;dttm&gt; 2024-05-30 10:31:02, 2024-05-08 16:40:02, 2024…
+$ DateCreated            &lt;dttm&gt; 2024-05-30 10:31:02, 2024-05-08 16:40:02, 2024…
+$ IncludeInSitemap       &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE,…
+$ SystemSourceKey        &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ UrlName                &lt;chr&gt; &quot;2024-DON518&quot;, &quot;2024-DON516&quot;, &quot;2024-DON517&quot;, &quot;2…
+$ ItemDefaultUrl         &lt;chr&gt; &quot;/2024-DON518&quot;, &quot;/2024-DON516&quot;, &quot;/2024-DON517&quot;,…
+$ Response               &lt;chr&gt; &quot;The overall capacity for countries to respond …
+$ FurtherInformation     &lt;chr&gt; &quot;WHO Fact sheet: Dengue and severe dengue; http…
+$ Summary                &lt;chr&gt; &quot;As of 30 April 2024, over 7.6 million dengue c…
+$ PublicationDateAndTime &lt;dttm&gt; 2024-05-30 18:00:00, 2024-05-08 16:24:14, 2024…
+$ TitleSuffix            &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+$ UseOverrideTitle       &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRU…
+$ Title                  &lt;chr&gt; &quot;Dengue - Global situation&quot;, &quot;Middle East respi…
+$ Epidemiology           &lt;chr&gt; &quot;Dengue virus is transmitted to humans through …
+$ OverrideTitle          &lt;chr&gt; &quot;Dengue - Global situation&quot;, &quot;Middle East respi…
+$ Advice                 &lt;chr&gt; &quot;Dengue is primarily an urban disease of the tr…
+$ Assessment             &lt;chr&gt; &quot;Dengue is a mosquito-borne viral disease cause…
+$ Overview               &lt;chr&gt; &quot;&amp;nbsp;Global overviewCurrent situationAs of 30…
+$ DonId                  &lt;chr&gt; &quot;2024-DON518&quot;, &quot;2024-DON516&quot;, &quot;2024-DON517&quot;, &quot;2…
+$ Provider               &lt;chr&gt; &quot;dynamicProvider372&quot;, &quot;dynamicProvider372&quot;, &quot;dy…</preformat>
+  </sec>
+  </sec>
+</sec>
+</body>
+
+
+
+<back>
+</back>
+
+
+</sub-article>
+
+</article>
