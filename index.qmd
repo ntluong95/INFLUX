@@ -6,24 +6,36 @@ author:
     orcid: 0000-0002-2621-378X
     corresponding: TRUE
     email: peter.sogaard.jorgensen@su.se
-    affiliations:
-      - id: swedesd
-        name: SWEDESD – Sustainability Learning and Research Center, Department of Women’s and Children’s Health, Uppsala University, Uppsala, Sweden
-      - id: gedb
-        name: Global Economic Dynamics and the Biosphere, Royal Swedish Academy of Sciences, Stockholm, Sweden    
-      - id: src
-        name: Stockholm Resilience Centre, Stockholm University, Stockholm, Sweden  
+    # affiliations:
+    #   - id: swedesd
+    #     name: SWEDESD 
+    #   - id: kva
+    #     name: KVA    
+    #   - id: src
+    #     name: SRC  
   
+  - name: Diana Veronica Luna Gonzalez 
+    orcid: 0000-0003-0194-4137
+    email: diana.lunagonzalez@su.se   
+    
   - name: Luong Nguyen Thanh
     orcid: 0000-0002-9270-9345
-    corresponding: FALSE
     email: nguyen.luong@uu.se
-    affiliations:
-      - ref: swedesd
-      - ref: gedb
-      - id: uac
-        name: Uppsala Antibiotic Centre (UAC), Uppsala University
+    # affiliations:
+    #   - ref: swedesd
+    #   - ref: kva
+    #   - id: uac
+    #     name: UAC
 
+  - name: Melissa Barton
+    orcid: 0000-0003-0661-134X
+    email: melissa.barton@su.se       
+    
+  - name: Kathryn Louise Bjorklund
+    email: kathryn.bjorklund@su.se
+    
+  - name: Ege Pehlivanoglu 
+    email: ege.pehlivanoglu@kva.se
   
 keywords: [EPP, drivers]
 
@@ -36,10 +48,15 @@ key-points:
   - Key point 2
 date: last-modified
 bibliography: references.bib
-citation:
-  container-title: TBD
+# citation:
+#   container-title: TBD
 number-sections: true
+
 ---
+
+::: {.callout-note appearance="simple" collapse="true"}
+This is a Quarto reproduction of a paper investigating drivers of EPP under the INFLUX project
+:::
 
 ## Introduction {#sec-introduction}
 

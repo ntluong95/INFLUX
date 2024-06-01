@@ -1,16 +1,26 @@
 project:
   type: manuscript
   output-dir: docs
+  
+
+manuscript:
+  article: index.qmd
+  code-links:
+    - text: Github
+      icon: github
+      href: https://github.com/ntluong95/INFLUX
 
 execute:
   freeze: auto
 
 format:
   html:
+    theme: [cosmo, theme-light.scss] #superhero
     toc: true
     comments:
-      hypothesis: true
+      hypothesis: true # comment side bar on the right
+    citations-hover: true
+    crossrefs-hover: true
   docx: default
-
 
 
