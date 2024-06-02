@@ -1,6 +1,10 @@
 project:
   type: manuscript
   output-dir: docs
+  render: 
+    - index.qmd
+    - notebooks/*.qmd
+    - notebooks/*.ipynb
   
 
 manuscript:
@@ -15,7 +19,7 @@ execute:
 
 format:
   html:
-    theme: [cosmo, theme-light.scss] #superhero
+    theme: [default, theme-light.scss] #superhero
     toc: true
     comments:
       hypothesis: true # comment side bar on the right
