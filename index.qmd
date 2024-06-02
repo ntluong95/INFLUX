@@ -51,7 +51,6 @@ bibliography: references.bib
 # citation:
 #   container-title: TBD
 number-sections: true
-
 ---
 
 ::: {.callout-note appearance="simple" collapse="true"}
@@ -61,6 +60,10 @@ This is a Quarto reproduction of a paper investigating drivers of EPP under the 
 ## Introduction {#sec-introduction}
 
 ## Methods {#sec-methods}
+
+Data were retrieved from WHO-DON API.
+
+{{< embed notebooks/WHO-DON.qmd#glimpse-data echo=true >}}
 
 Data retrieved from WHO-DON can merge with data from [@carlson2023]
 
@@ -74,4 +77,3 @@ Data retrieved from WHO-DON can merge with data from [@carlson2023]
 
 ::: {#refs}
 :::
-

@@ -28,6 +28,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -182,6 +216,38 @@ div.csl-indent {
 </section>
 <section id="sec-methods" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="sec-methods"><span class="header-section-number">2</span> Methods</h2>
+<p>Data were retrieved from WHO-DON API.</p>
+<div class="quarto-embed-nb-cell">
+<div id="glimpse-data" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>glimpse(all_news_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 3,102
+Columns: 22
+$ Id                     &lt;chr&gt; "8c8a4612-7d82-4e67-adb8-e1bc9aa69c4b", "696077…
+$ LastModified           &lt;dttm&gt; 2024-05-30 14:31:48, 2024-05-16 14:53:26, 2024…
+$ PublicationDate        &lt;dttm&gt; 2024-05-30 10:31:02, 2024-05-08 16:40:02, 2024…
+$ DateCreated            &lt;dttm&gt; 2024-05-30 10:31:02, 2024-05-08 16:40:02, 2024…
+$ IncludeInSitemap       &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE,…
+$ SystemSourceKey        &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ UrlName                &lt;chr&gt; "2024-DON518", "2024-DON516", "2024-DON517", "2…
+$ ItemDefaultUrl         &lt;chr&gt; "/2024-DON518", "/2024-DON516", "/2024-DON517",…
+$ Response               &lt;chr&gt; "The overall capacity for countries to respond …
+$ FurtherInformation     &lt;chr&gt; "WHO Fact sheet: Dengue and severe dengue; http…
+$ Summary                &lt;chr&gt; "As of 30 April 2024, over 7.6 million dengue c…
+$ PublicationDateAndTime &lt;dttm&gt; 2024-05-30 18:00:00, 2024-05-08 16:24:14, 2024…
+$ TitleSuffix            &lt;chr&gt; "", "", "", "", "", "", "", "", "", "", "", "",…
+$ UseOverrideTitle       &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRU…
+$ Title                  &lt;chr&gt; "Dengue - Global situation", "Middle East respi…
+$ Epidemiology           &lt;chr&gt; "Dengue virus is transmitted to humans through …
+$ OverrideTitle          &lt;chr&gt; "Dengue - Global situation", "Middle East respi…
+$ Advice                 &lt;chr&gt; "Dengue is primarily an urban disease of the tr…
+$ Assessment             &lt;chr&gt; "Dengue is a mosquito-borne viral disease cause…
+$ Overview               &lt;chr&gt; "&amp;nbsp;Global overviewCurrent situationAs of 30…
+$ DonId                  &lt;chr&gt; "2024-DON518", "2024-DON516", "2024-DON517", "2…
+$ Provider               &lt;chr&gt; "dynamicProvider372", "dynamicProvider372", "dy…</code></pre>
+</div>
+</div>
+<a class="quarto-notebook-link" id="nblink-1" href="notebooks\WHO-DON-preview.html#cell-glimpse-data">Source: Scraping data from WHO-DON website</a></div>
 <p>Data retrieved from WHO-DON can merge with data from <span class="citation" data-cites="carlson2023">(<a href="#ref-carlson2023" role="doc-biblioref">Carlson et al. 2023</a>)</span></p>
 </section>
 <section id="sec-results" class="level2" data-number="3">

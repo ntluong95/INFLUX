@@ -125,5 +125,6 @@ all_news_df <- import(here("data", "who_dons.csv"))
 
 
 ```{r}
+#| label: glimpse-data
 glimpse(all_news_df)
 ```
