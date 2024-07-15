@@ -1,0 +1,271 @@
+# CausalizeR package testing
+
+
+```{r}
+pacman::p_load(
+    rio,
+    here,
+    janitor,
+    udpipe,
+    quanteda,
+    quanteda.textplots,
+    quanteda.textstats,
+    tidyverse
+)
+# pacman::p_load_gh("trinker/entity")
+# remotes::install_gitlab("culturalcartography/text2map.theme")
+text2map.theme::set_theme()
+# remotes::install_github("quanteda/quanteda.corpora")
+# remotes::install_gitlab("culturalcartography/text2map.corpora")
+
+corpus <- import(here("data", "corpus.csv"))
+```
+
+```{r}
+#| echo: FALSE
+#| label: rewrite-function
+passivevoice<-function(effect=NULL,sentence=NULL){
+  driver<-NULL
+  affected<-NULL
+  if(!effect%in%sentence$lemma){}else{
+  for(k in (which(sentence$lemma==effect)-1)[1]:1){
+
+    if( sentence$xpos[k]=="NN"|sentence$xpos[k]=="NNS"){
+      if(k==1){ affected<-sentence$lemma[k]}else
+        if(sentence$xpos[k-1]=="NN"|sentence$xpos[k-1]=="NNS"|sentence$xpos[k-1]=="JJ"){
+
+          affected<-paste(sentence$lemma[k-1],sentence$lemma[k],collapse="_")} else{
+            affected<-sentence$lemma[k]}
+    } #Close the loop that finds a NOUN before the "effect"
+
+    if( sentence$xpos[k]=="NN"|sentence$xpos[k]=="NNS"){break}
+
+
+  } #Close the affected loop
+
+
+  for(m in (which(sentence$lemma==effect)+1)[1]:length(sentence$lemma)){
+
+
+    if( sentence$xpos[m]=="NN"|sentence$xpos[m]=="NNS"){
+      if(m==length(sentence$lemma)){
+        if(sentence$xpos[m-1]=="JJ"){driver<-paste(sentence$lemma[m-1],sentence$lemma[m],collapse="_")} else {
+          driver<-sentence$lemma[m]}} else
+            if(sentence$xpos[m+1]=="NN"|sentence$xpos[m+1]=="NNS"){  # for "JJ" it is m-1 because adjectives always come before the sustantive
+              driver<-paste(sentence$lemma[m],sentence$lemma[m+1],collapse="_")}
+
+      else{
+        driver<-sentence$lemma[m]
+      }
+      if( sentence$xpos[m]=="NN"|sentence$xpos[k]=="NNS"){break}
+
+    } #Close the loop that finds a NOUN after the "effect"
+
+  }
+    } #Close the driver loop
+  if(!is.null(driver)&&!is.null(affected)){
+    return(cbind.data.frame(driver=driver,affected=affected,effect=effect))
+  }
+}
+
+activevoice<-function(effect=NULL,sentence=NULL){
+
+  driver<-NULL
+  affected<-NULL
+  if(!effect%in%sentence$lemma){}else{
+  for(k in (which(sentence$lemma==effect)-1)[1]:1){
+
+    if( sentence$xpos[k]=="NN"|sentence$xpos[k]=="NNS"){
+      if(k==1){ driver<-sentence$lemma[k]}else
+        if(sentence$xpos[k-1]=="NN"|sentence$xpos[k-1]=="NNS"|sentence$xpos[k-1]=="JJ"){
+
+          driver<-paste(sentence$lemma[k-1],sentence$lemma[k],collapse="_")} else{
+            driver<-sentence$lemma[k]}
+    } #Close the loop that finds a NOUN before the "effect"
+
+    if( sentence$xpos[k]=="NN"){break}
+
+
+  } #Close the driver loop
+
+
+  for(m in (which(sentence$lemma==effect)+1)[1]:length(sentence$lemma)){
+
+
+    if( sentence$xpos[m]=="NN"|sentence$xpos[m]=="NNS"){
+      if(m==length(sentence$lemma)){
+        if(sentence$xpos[m-1]=="JJ"){affected<-paste(sentence$lemma[m-1],sentence$lemma[m],collapse="_")} else {
+          affected<-sentence$lemma[m]}} else
+            if(sentence$xpos[m+1]=="NN"||sentence$xpos[m+1]=="NNS"){  # for "JJ" it is m-1 because adjectives always come before the sustantive
+              affected<-paste(sentence$lemma[m],sentence$lemma[m+1],collapse="_")}
+
+      else{
+        affected<-sentence$lemma[m]
+      }
+      if( sentence$xpos[m]=="NN"){break}
+
+    } #Close the loop that finds a NOUN after the "effect"
+}
+  } #Close the affected loop
+  if(!is.null(driver)&&!is.null(affected)){
+    return(cbind.data.frame(driver=driver,affected=affected,effect=effect))
+  }
+} #Close the conditional that looks for nouns before and after the verb
+
+
+causalize <- function(texts = NULL, effect = NULL, effect_num = 0, tokenizer = NULL) {
+     if (is.null(tokenizer)) {
+          tokenizer <- udpipe_download_model("english")
+          tokenizer <- udpipe_load_model(tokenizer$file_model)
+     }
+     
+     progbar <- txtProgressBar(min = 0, max = length(texts), style = 3)
+     driver <- list()
+     affected <- list()
+     res.mat <- list()
+     
+     for (w in 1:length(texts)) {
+          annotated_text <- as.data.frame(udpipe_annotate(tokenizer, texts[w]))
+          
+          sent.num <- NULL
+          
+          for (i in 1:length(unique(annotated_text$sentence_id))) {
+               if (effect %in% annotated_text$lemma[annotated_text$sentence_id == i]) {
+                    sent.num <- c(sent.num, i)
+               }
+          }
+          
+          if (is.null(sent.num)) {
+               next
+          } else {
+               for (j in sent.num) {
+                    sent1 <- annotated_text[annotated_text$sentence_id == j, ]
+                    
+                    ## Ensure that there are nouns before and after the verb. Skip sentence if this requirement is not met
+                    effect_indices <- which(sent1$lemma == effect)
+                    if (any(effect_indices == 1)) {
+                         next
+                    } else {
+                         if ("NOUN" %in% sent1$upos[(effect_indices[1] - 1):1]) {
+                              if ("NOUN" %in% sent1$upos[(effect_indices[1] + 1):length(sent1$lemma)]) {
+                                   if (length(grep("in response to|\\bby\\b|\\bwith\\b|\\bas a result of", sent1)) > 0) {
+                                        res.mat[[length(res.mat) + 1]] <- cbind.data.frame(passivevoice(effect = effect, sentence = sent1), effect_num = effect_num, text_number = w)
+                                   } else {
+                                        res.mat[[length(res.mat) + 1]] <- cbind.data.frame(activevoice(effect = effect, sentence = sent1), effect_num = effect_num, text_number = w)
+                                   }
+                              }
+                         }
+                    }
+               }
+          }
+          setTxtProgressBar(progbar, w)
+     }
+     
+     return(do.call(rbind.data.frame, res.mat))
+}
+
+```
+
+
+
+# Package description
+
+Determine whether certain sentences contain a specified effect (a word or phrase), and then classify these sentences as either active or passive voice. It uses the udpipe package for tokenization and annotation of the text. 
+
+Initialization: Loads a udpipe model for English if no tokenizer is provided. Sets up a progress bar to monitor the analysis progress across the text entries.
+
+Data Processing Loop: Iterates over each text entry, tokenizes and annotates it to create a dataframe where each word is broken down by sentence, lemma, and part-of-speech tag. Identifies sentences that contain the specified effect (word or phrase).
+
+Voice Classification: For each sentence containing the effect, it checks the position of the effect and the types of words before and after it. If the word before and after the effect are nouns, further checks are performed to classify the sentence as active or passive based on the presence of specific prepositions or phrases like "in response to", "by", or "with". Depending on the classification, sentences are processed by either a passivevoice or activevoice function (these functions return a dataframe describing the sentence in context).
+
+The passivevoice and activevoice functions are used to extract the subjects (drivers) and objects (affected entities) related to the effect in the sentence:
+passivevoice Function: Searches for nouns before the effect to identify the affected entity. Searches for nouns after the effect to identify the driver.
+activevoice Function: Searches for nouns before the effect to identify the driver. Searches for nouns after the effect to identify the affected entity.
+
+
+```{r}
+#| eval: false
+# effects<-cbind.data.frame(effect=c("decrease","increase"),effect_direction=c((-1),1))
+# temp.list<-list()
+
+# for(i in 1:length(effects$effect)){
+
+#   temp.list[[i]]<-causalize(corpus$Text,effect=effects[i,1],effect_num=effects[i,2])
+# }
+
+# saveRDS(temp.list, here("data/drivers_list.rds"))
+
+# decrease_driver <- temp.list[[1]]
+# increase_driver <- temp.list[[2]]
+# # Error in if (which(sent1$lemma == effect) == 1) { : 
+# #   the condition has length > 1
+
+# # export temp.list to .Rds file
+
+
+# # test <- import(here("data/drivers_list.rds"))
+
+# dat<-do.call(rbind.data.frame,temp.list)
+# dat$driver<-as.character(dat$driver)
+# dat$affected<-as.character(dat$affected)
+```
+
+View result
+```{r}
+dat <- import(here("data/drivers_list.rds"))
+DT::datatable(dat)
+```
+
+Small example
+```{r}
+# effects<-cbind.data.frame(effect=c("decrease","increase"),effect_direction=c((-1),1))
+# example.list<-list()
+
+# for(i in 1:length(effects$effect)){
+
+#   example.list[[i]]<-causalize(corpus$Text[1:5],effect=effects[i,1],effect_num=effects[i,2])
+# }
+
+# saveRDS(example.list, here("data/example_list.rds"))
+
+# example.list <- import(here("data/example_list.rds"))
+
+# decrease_driver <- example.list[[1]]
+# increase_driver <- example.list[[2]]
+# # Error in if (which(sent1$lemma == effect) == 1) { : 
+# #   the condition has length > 1
+
+# # export temp.list to .Rds file
+
+
+# # test <- import(here("data/drivers_list.rds"))
+
+# example<-do.call(rbind.data.frame,example.list)
+# example$driver<-as.character(example$driver)
+# example$affected<-as.character(example$affected)
+
+example <- import(here("data/example_list.rds"))
+DT::datatable(example)
+```
+
+
+<!-- 
+```{r}
+who_corpus <- corpus(corpus, text_field = "Text") 
+
+tokens <- tokens(who_corpus, what = "word",
+              remove_punct = TRUE,
+              remove_symbols = TRUE,
+              remove_numbers = TRUE,
+              remove_url = TRUE,
+              split_hyphens = TRUE,
+              verbose = TRUE) %>%
+  tokens_tolower() %>%
+  tokens_select(stopwords("english"), selection = "remove", padding = FALSE, verbose = TRUE)
+```
+
+There are 2 mains data structure: 
+- the (1) document-termmatrix (DTM): a tabular structure where the rows are our documents and the columns are the contexts in which a word appears.
+- the (2) term-context matrix (TCM): also a tabular structure, but the rows are terms and the columns may be the documents in which the terms appear (i.e., a rotated DTM) or the other terms a target term occurs alongside (a term-cooccurrence matrix) within a given window. 
+
+The first step, though, is to tokenize. -->

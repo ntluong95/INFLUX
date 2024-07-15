@@ -116,6 +116,38 @@ all_news_df %>%
   rio::export(here("data", "who_dons.csv"))
 ```
 
+
+## Pivot data into long format
+
+```{r}
+corpus <- import(here("data/who_dons.csv")) %>% 
+    select(
+        UrlName,
+        DonId,
+        # Ranking of information based on important
+        Summary,
+        Overview,
+        Epidemiology,
+        Assessment,
+        Advice,
+        FurtherInformation
+    ) %>% 
+    # remove value 1 in character columns to NA
+    mutate(across(where(is.character), ~na_if(., ""))) %>% 
+    # Standardize DonID column, with this format Year-DON-Number
+    # the UrlName column will be used if DonID is missing
+    mutate(DonID_standardized = coalesce(DonId, UrlName)) %>%
+    #relocate DonID_standardized column to the first column
+    relocate(DonID_standardized, .before = UrlName) %>%
+    # pivot_longer data, so information from columns summary to FurtherInformation are in one column
+    pivot_longer(
+        cols = Summary:FurtherInformation,
+        names_to = "InformationType",
+        values_to = "Text") 
+
+export(corpus, here("data", "corpus.csv"))
+```
+
 ## Preview data
 
 ```{r}
@@ -123,8 +155,9 @@ all_news_df %>%
 all_news_df <- import(here("data", "who_dons.csv"))
 ```
 
+Data up to 15 July 2024
 
 ```{r}
 #| label: glimpse-data
-glimpse(all_news_df)
+glimpse(corpus)
 ```
