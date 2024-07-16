@@ -212,8 +212,11 @@
 </div>
 <main class="content quarto-banner-title-block" id="quarto-document-content">      
 
-       <section id="chatgpt-prompt" class="level1">
+       <div id="cell-0" class="cell markdown">
+<section id="chatgpt-prompt" class="level1">
 <h1>ChatGPT prompt</h1>
+</section>
+</div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [23]:</pre></div><div id="cell-1" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
@@ -227,6 +230,7 @@
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics.pairwise <span class="im">import</span> cosine_similarity</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sentence_transformers <span class="im">import</span> SentenceTransformer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
+<div id="cell-2" class="cell markdown">
 <p>Causal text mining (CTM) has been applied to various NLP tasks such as <strong>knowledge base construction, question answering, and text summarization</strong> The methodologies of CTM often involve two phases: <strong>causal sequence classification and causal span detection</strong></p>
 <ul>
 <li>The causal sequence classification is a binary classification task to detect whether the sequence entails causality or not. This task requires a deep understanding of commonsense knowledge, as determining causality necessitates the comprehension of underlying real-world principles and contexts&nbsp;Gao et&nbsp;al.</li>
@@ -253,9 +257,11 @@
 <p>ChatGPT often <strong>demonstrates competitive results</strong> in few-shot settings even in financial domain-specific datasets and Japanese datasets, even though a fully trained encoder-based model outperforms ChatGPT. The result indicates that ChatGPT is a <strong>good starting point for various datasets especially when training data are unavailable</strong>, but not a good causal text miner when the training data are readily available.</p>
 <p>The result indicates that ChatGPT serves as a good starting point when training data are limited as its performance is not influenced by the data size. In contrast, <strong>encoder models depend heavily on data size</strong></p>
 <p>ChatGPT struggles with complex causality types, especially those of intra/inter-sentential and implicit causality</p>
+</div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="cell-3" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>who_data <span class="op">=</span> pd.read_csv(<span class="st">"../data/corpus.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
+<div id="cell-4" class="cell markdown">
 <p><strong>Sample sentence</strong>: The sudden appearance of unlinked cases of mpox in South Africa without a history of international travel, the high HIV prevalence among confirmed cases, and the high case fatality ratio suggest that community transmission is underway, and the cases detected to date represent a small proportion of all mpox cases that might be occurring in the community; it is unknown how long the virus may have been circulating. This may in part be due to the lack of early clinical recognition of an infection with which South Africa previously gained little experience during the ongoing global outbreak, potential pauci-symptomatic manifestation of the disease, or delays in care-seeking behaviour due to limited access to care or fear of stigma.</p>
 <p><strong>Expected results</strong>:</p>
 <ul>
@@ -265,6 +271,7 @@
 <li>Cause: limited access to care -&gt; Effect: delays in care-seeking behaviour</li>
 <li>Cause: fear of stigma -&gt; Effect: delays in care-seeking behaviour</li>
 </ul>
+</div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="cell-5" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>openai.api_key <span class="op">=</span> os.getenv(<span class="st">"OPENAI_API_KEY"</span>)</span>
@@ -380,7 +387,9 @@
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>chunks <span class="op">=</span> util.create_chunks(text)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>cc <span class="op">=</span> CausalChain(chunks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
+<div id="cell-7" class="cell markdown">
 <p>In the Democratic Republic of the Congo, most reported cases in known endemic provinces continue to be among children under 15 years of age, especially in young children. Infants and children under five years of age are at highest risk of severe disease and death, <strong>particularly where prompt optimal case management is limited or unavailable</strong>. The number of cases reported weekly remains consistently high while the outbreak continues to expand geographically. High test positivity among tested cases in most provinces also suggests that <strong>undetected transmission</strong> is likely ongoing in the community. Transmission of mpox due to clade I MPXV via <strong>sexual contact</strong> in key populations was first identified in the Democratic Republic of the Congo in 2023. In South Kivu province, mpox transmission is sustained through <strong>human-to-human contact (sexual and non-sexual)</strong>. The global outbreak 2022 — 2024 has shown that <strong>sexual contact</strong> enables faster and more efficient spread of the virus from one person to another due to direct contact of mucous membranes between people, contact with multiple partners, a possibly shorter incubation period on average, and a longer infectious period for immunocompromised individuals. The newly documented occurrence of mpox in North Kivu is very concerning. The additional public health impact of sustained human-to-human sexual transmission of mpox in the country indicates that a vigorous response is required. One of the main risk factors for severe disease and death among persons with mpox is <strong>immune suppression</strong>, especially among those with advanced HIV infection. The prevalence of HIV in the general adult population in the Democratic Republic of the Congo is estimated to be approximately 1%, higher in the eastern provinces than elsewhere, and higher in key populations including estimates of a prevalence of 7.5% among sex workers and 7.1% among men who have sex with men. The <strong>higher HIV prevalence</strong> and the <strong>challenge in accessing antiretroviral treatment</strong> puts these groups at higher risk for severe mpox and death if they get infected. The occurrence of cases among a broad range of occupational groups and within households also suggests that the outbreak in South Kivu is already spreading into the wider community. Understanding of the dynamics of MPXV transmission in the Democratic Republic of the Congo is improving with the emergency measures being put in place. Nonetheless, a <strong>lack of timely access to diagnostics in many areas</strong>, <strong>incomplete epidemiological investigations</strong>, <strong>challenges in contact tracing</strong> and <strong>extensive but inconclusive animal investigations</strong> continue to hamper rapid response. While <strong>zoonotic spill over events</strong> are considered to still represent a major source of exposure in the country, the animal reservoir remains unknown.</p>
+</div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="cell-8" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cc.create_effects()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -391,7 +400,7 @@ Analyzing causation...</code></pre>
 <pre><code>  0%|                                                   | 0/12 [00:00&lt;?, ?it/s]  8%|███▌                                       | 1/12 [00:01&lt;00:16,  1.46s/it] 17%|███████▏                                   | 2/12 [00:02&lt;00:14,  1.43s/it] 25%|██████████▊                                | 3/12 [00:04&lt;00:14,  1.64s/it] 33%|██████████████▎                            | 4/12 [00:05&lt;00:11,  1.38s/it] 42%|█████████████████▉                         | 5/12 [00:06&lt;00:09,  1.29s/it] 50%|█████████████████████▌                     | 6/12 [00:08&lt;00:07,  1.26s/it] 58%|█████████████████████████                  | 7/12 [00:09&lt;00:07,  1.47s/it] 67%|████████████████████████████▋              | 8/12 [00:12&lt;00:06,  1.74s/it] 75%|████████████████████████████████▎          | 9/12 [00:13&lt;00:04,  1.52s/it] 83%|███████████████████████████████████       | 10/12 [00:14&lt;00:02,  1.38s/it] 92%|██████████████████████████████████████▌   | 11/12 [00:15&lt;00:01,  1.32s/it]100%|██████████████████████████████████████████| 12/12 [00:17&lt;00:00,  1.50s/it]100%|██████████████████████████████████████████| 12/12 [00:17&lt;00:00,  1.46s/it]</code></pre>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="cell-9" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="cell-9" class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_causes_effects_dataframe(causes, effects):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> {<span class="st">"Cause"</span>: causes, <span class="st">"Effect"</span>: effects}</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(data)</span>
@@ -9463,7 +9472,6 @@ Effect: higher likelihood of disease outbreaks
 </code></pre>
 </div>
 </div></div>
-</section>
      </main>
 <!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

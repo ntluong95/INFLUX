@@ -105,7 +105,7 @@
       }      
     </style>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script>
+    <script>
     window.document.addEventListener("DOMContentLoaded", function () {
 
       var header = window.document.querySelector("#quarto-embed-header");
@@ -161,9 +161,7 @@
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     document.body.classList.add('hypothesis-enabled');
   });
-</script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>  
+</script>  
       </head>
 
   <body class="quarto-notebook">
@@ -181,7 +179,7 @@
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
 </div>
-<main class="content quarto-banner-title-block" id="quarto-document-content">    <div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="cell-0" class="cell" data-execution_count="6">
+<main class="content quarto-banner-title-block" id="quarto-document-content">    <div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="cell-0" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -198,109 +196,14 @@
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="cell-1" class="cell" data-execution_count="7">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="cell-1" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>openai.api_key <span class="op">=</span> os.getenv(<span class="st">"OPENAI_API_KEY"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>who_data <span class="op">=</span> pd.read_csv(<span class="st">"../data/corpus.csv"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sub_data <span class="op">=</span> who_data[<span class="dv">0</span>:<span class="dv">9</span>]</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sub_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">DonID_standardized</th>
-<th data-quarto-table-cell-role="th">UrlName</th>
-<th data-quarto-table-cell-role="th">DonId</th>
-<th data-quarto-table-cell-role="th">InformationType</th>
-<th data-quarto-table-cell-role="th">Text</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>Summary</td>
-<td>The International Health Regulations (IHR) Nat...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>Overview</td>
-<td>The IHR NFP of the Republic of South Africa no...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>Epidemiology</td>
-<td>Mpox is an infectious disease caused by the mo...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>Assessment</td>
-<td>The sudden appearance of unlinked cases of mpo...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>Advice</td>
-<td>General&amp;nbsp;Health authorities and clinicians...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>2024-DON525</td>
-<td>FurtherInformation</td>
-<td>Standing recommendations for mpox issued by th...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>2024-DON522</td>
-<td>2024-DON522</td>
-<td>2024-DON522</td>
-<td>Summary</td>
-<td>In December 2022, the Democratic Republic of t...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>2024-DON522</td>
-<td>2024-DON522</td>
-<td>2024-DON522</td>
-<td>Overview</td>
-<td>Since 2022, an epidemic of mpox caused by monk...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>2024-DON522</td>
-<td>2024-DON522</td>
-<td>2024-DON522</td>
-<td>Epidemiology</td>
-<td>Mpox (monkeypox) is an infectious disease caus...</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [15]:</pre></div><div id="cell-2" class="cell" data-execution_count="15">
+<div class="cell-container"><div class="cell-decorator"><pre>In [17]:</pre></div><div id="cell-2" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> OpenAIAPI:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, settings):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.settings <span class="op">=</span> settings</span>
@@ -469,7 +372,7 @@
 <span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> label1 <span class="op">!=</span> <span class="st">"label"</span>:</span>
 <span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a>                get_kappa_score(data, label1, label2, output_file_path_template)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [16]:</pre></div><div id="cell-3" class="cell" data-execution_count="16">
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="cell-3" class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define parameters</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>work <span class="op">=</span> <span class="st">"api"</span>  <span class="co"># or 'quant'</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> <span class="st">"gpt-3.5-turbo"</span>  <span class="co"># or 'chatgpt', 'gpt4'</span></span>
@@ -480,15 +383,6 @@
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Call the main function</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>main(work, model, sub_data, column_name, prompt_text, output_path, checkpoint)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Available columns: Index(['DonID_standardized', 'UrlName', 'DonId', 'InformationType', 'Text'], dtype='object')
-0
-Available columns: Index(['DonID_standardized', 'UrlName', 'DonId', 'InformationType', 'Text'], dtype='object')
-0</code></pre>
-</div>
-<div class="cell-output cell-output-error">
-<pre><code>UnboundLocalError: cannot access local variable 'answer' where it is not associated with a value</code></pre>
-</div>
 </div></div>
      </main>
 <!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
