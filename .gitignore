@@ -12,3 +12,4 @@
 .httr-oauth
 .DS_Store
 notebooks/.env
+/text2causalgraph
