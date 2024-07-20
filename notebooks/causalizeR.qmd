@@ -245,7 +245,7 @@ Small example
 # example$affected<-as.character(example$affected)
 
 example <- import(here("data/example_list.rds"))
-DT::datatable(example)
+DT::datatable(example) 
 ```
 
 
