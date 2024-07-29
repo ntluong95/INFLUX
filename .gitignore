@@ -13,3 +13,7 @@
 .DS_Store
 notebooks/.env
 /text2causalgraph
+
+/_build/
+CRE_workshop_materials.zip
+/index_files/

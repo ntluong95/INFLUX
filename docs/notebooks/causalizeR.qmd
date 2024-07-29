@@ -17,7 +17,6 @@ pacman::p_load(
 text2map.theme::set_theme()
 # remotes::install_github("quanteda/quanteda.corpora")
 # remotes::install_gitlab("culturalcartography/text2map.corpora")
-
 corpus <- import(here("data", "corpus.csv"))
 ```
 
@@ -245,7 +244,7 @@ Small example
 # example$affected<-as.character(example$affected)
 
 example <- import(here("data/example_list.rds"))
-DT::datatable(example)
+DT::datatable(example) 
 ```
 
 
@@ -269,3 +268,4 @@ There are 2 mains data structure:
 - the (2) term-context matrix (TCM): also a tabular structure, but the rows are terms and the columns may be the documents in which the terms appear (i.e., a rotated DTM) or the other terms a target term occurs alongside (a term-cooccurrence matrix) within a given window. 
 
 The first step, though, is to tokenize. -->
+
