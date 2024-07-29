@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
     <meta charset="utf-8">
-    <meta name="generator" content="quarto-1.4.550">
+    <meta name="generator" content="quarto-1.5.55">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,7 +32,7 @@
       }
       @media print {
       pre > code.sourceCode { white-space: pre-wrap; }
-      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -202,24 +202,16 @@
     </div>  </div>
 </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
 <div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#chatgpt-google-gemini-prompt" id="toc-chatgpt-google-gemini-prompt" class="nav-link active" data-scroll-target="#chatgpt-google-gemini-prompt">ChatGPT &amp; Google Gemini prompt</a></li>
-  </ul>
-</nav>
+  
 </div>
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
 <main class="content quarto-banner-title-block" id="quarto-document-content">      
 
-       <div id="cell-0" class="cell markdown">
-<section id="chatgpt-google-gemini-prompt" class="level1">
-<h1>ChatGPT &amp; Google Gemini prompt</h1>
-</section>
+     <div id="cell-1" class="cell markdown">
+
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [118]:</pre></div><div id="cell-1" class="cell" data-execution_count="118">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openai</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> causal_chains.CausalChain <span class="im">import</span> util  <span class="co"># https://github.com/helliun/causal-chains</span></span>
@@ -235,10 +227,10 @@
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pathlib</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> textwrap</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [85]:</pre></div><div id="cell-2" class="cell" data-execution_count="85">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="cell-3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>who_data <span class="op">=</span> pd.read_csv(<span class="st">"../data/corpus.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<div id="cell-3" class="cell markdown">
+<div id="cell-4" class="cell markdown">
 <p>Causal text mining (CTM) has been applied to various NLP tasks such as <strong>knowledge base construction, question answering, and text summarization</strong> The methodologies of CTM often involve two phases: <strong>causal sequence classification and causal span detection</strong></p>
 <ul>
 <li>The causal sequence classification is a binary classification task to detect whether the sequence entails causality or not. This task requires a deep understanding of commonsense knowledge, as determining causality necessitates the comprehension of underlying real-world principles and contexts&nbsp;Gao et&nbsp;al.</li>
@@ -266,7 +258,7 @@
 <p>The result indicates that ChatGPT serves as a good starting point when training data are limited as its performance is not influenced by the data size. In contrast, <strong>encoder models depend heavily on data size</strong></p>
 <p>ChatGPT struggles with complex causality types, especially those of intra/inter-sentential and implicit causality</p>
 </div>
-<div id="cell-4" class="cell markdown">
+<div id="cell-5" class="cell markdown">
 <p><strong>Sample sentence</strong>: The sudden appearance of unlinked cases of mpox in South Africa without a history of international travel, the high HIV prevalence among confirmed cases, and the high case fatality ratio suggest that community transmission is underway, and the cases detected to date represent a small proportion of all mpox cases that might be occurring in the community; it is unknown how long the virus may have been circulating. This may in part be due to the lack of early clinical recognition of an infection with which South Africa previously gained little experience during the ongoing global outbreak, potential pauci-symptomatic manifestation of the disease, or delays in care-seeking behaviour due to limited access to care or fear of stigma.</p>
 <p><strong>Expected results</strong>:</p>
 <ul>
@@ -277,7 +269,7 @@
 <li>Cause: fear of stigma -&gt; Effect: delays in care-seeking behaviour</li>
 </ul>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [127]:</pre></div><div id="cell-5" class="cell" data-execution_count="127">
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="cell-6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>openai.api_key <span class="op">=</span> os.getenv(<span class="st">"OPENAI_API_KEY"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>gemini_api_key <span class="op">=</span> os.getenv(<span class="st">"GEMINI_API_KEY"</span>)</span>
@@ -434,16 +426,16 @@
 <span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(data)</span>
 <span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<div id="cell-6" class="cell markdown">
+<div id="cell-7" class="cell markdown">
 <p><strong>Example of text to ask LLMs</strong></p>
 <p>In the Democratic Republic of the Congo, most reported cases in known endemic provinces continue to be among children under 15 years of age, especially in young children. Infants and children under five years of age are at highest risk of severe disease and death, <strong>particularly where prompt optimal case management is limited or unavailable</strong>. The number of cases reported weekly remains consistently high while the outbreak continues to expand geographically. High test positivity among tested cases in most provinces also suggests that undetected transmission is likely ongoing in the community. Transmission of mpox due to clade I MPXV via <strong>sexual contact</strong> in key populations was first identified in the Democratic Republic of the Congo in 2023. In South Kivu province, mpox transmission is sustained through <strong>human-to-human contact (sexual and non-sexual)</strong></p>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [128]:</pre></div><div id="cell-7" class="cell" data-execution_count="128">
+<div class="cell-container"><div class="cell-decorator"><pre>In [128]:</pre></div><div id="cell-8" class="cell" data-execution_count="128">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> who_data[<span class="st">"Text"</span>][<span class="dv">9</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>chunks <span class="op">=</span> util.create_chunks(text)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>cc <span class="op">=</span> CausalChain(chunks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [130]:</pre></div><div id="cell-8" class="cell" data-execution_count="130">
+<div class="cell-container"><div class="cell-decorator"><pre>In [130]:</pre></div><div id="cell-9" class="cell" data-execution_count="130">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cc.create_effects(api<span class="op">=</span><span class="st">"openai"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analyzing causation...
@@ -453,7 +445,7 @@ Analyzing causation...</code></pre>
 <pre><code>  0%|                                                   | 0/12 [00:00&lt;?, ?it/s]  8%|███▌                                       | 1/12 [00:03&lt;00:40,  3.67s/it] 17%|███████▏                                   | 2/12 [00:06&lt;00:30,  3.09s/it] 25%|██████████▊                                | 3/12 [00:10&lt;00:32,  3.58s/it] 33%|██████████████▎                            | 4/12 [00:12&lt;00:24,  3.01s/it] 42%|█████████████████▉                         | 5/12 [00:15&lt;00:19,  2.78s/it] 50%|█████████████████████▌                     | 6/12 [00:17&lt;00:16,  2.83s/it] 58%|█████████████████████████                  | 7/12 [00:20&lt;00:14,  2.84s/it] 67%|████████████████████████████▋              | 8/12 [00:23&lt;00:11,  2.85s/it] 75%|████████████████████████████████▎          | 9/12 [00:26&lt;00:08,  2.76s/it] 83%|███████████████████████████████████       | 10/12 [00:28&lt;00:05,  2.72s/it] 92%|██████████████████████████████████████▌   | 11/12 [00:33&lt;00:03,  3.40s/it]100%|██████████████████████████████████████████| 12/12 [00:37&lt;00:00,  3.49s/it]100%|██████████████████████████████████████████| 12/12 [00:37&lt;00:00,  3.13s/it]</code></pre>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [129]:</pre></div><div id="cell-9" class="cell" data-execution_count="129">
+<div class="cell-container"><div class="cell-decorator"><pre>In [129]:</pre></div><div id="cell-10" class="cell" data-execution_count="129">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cc.create_effects(api<span class="op">=</span><span class="st">"gemini"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analyzing causation...
@@ -463,17 +455,16 @@ Analyzing causation...</code></pre>
 <pre><code>  0%|                                                   | 0/12 [00:00&lt;?, ?it/s]  8%|███▌                                       | 1/12 [00:12&lt;02:12, 12.07s/it] 17%|███████▏                                   | 2/12 [00:19&lt;01:31,  9.12s/it] 25%|██████████▊                                | 3/12 [00:21&lt;00:56,  6.25s/it] 33%|██████████████▎                            | 4/12 [00:29&lt;00:54,  6.78s/it] 42%|█████████████████▉                         | 5/12 [00:41&lt;00:59,  8.53s/it] 50%|█████████████████████▌                     | 6/12 [00:46&lt;00:44,  7.37s/it] 58%|█████████████████████████                  | 7/12 [00:49&lt;00:30,  6.01s/it] 67%|████████████████████████████▋              | 8/12 [01:01&lt;00:31,  7.87s/it] 75%|████████████████████████████████▎          | 9/12 [01:02&lt;00:17,  5.90s/it] 83%|███████████████████████████████████       | 10/12 [01:05&lt;00:09,  4.79s/it] 92%|██████████████████████████████████████▌   | 11/12 [01:12&lt;00:05,  5.68s/it]100%|██████████████████████████████████████████| 12/12 [01:18&lt;00:00,  5.75s/it]100%|██████████████████████████████████████████| 12/12 [01:18&lt;00:00,  6.57s/it]</code></pre>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [135]:</pre></div><div id="cell-10" class="cell" data-execution_count="135">
+<div class="cell-container"><div class="cell-decorator"><pre>In [135]:</pre></div><div id="cell-11" class="cell" data-execution_count="135">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> create_causes_effects_dataframe(cc.causes, cc.effects, cc.sources)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [136]:</pre></div><div id="cell-11" class="cell" data-execution_count="136">
+<div class="cell-container"><div class="cell-decorator"><pre>In [136]:</pre></div><div id="cell-12" class="cell" data-execution_count="136">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>display(df[df[<span class="st">'Source'</span>] <span class="op">==</span> <span class="st">'gemini'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -610,16 +601,14 @@ Analyzing causation...</code></pre>
 
 </div>
 </div>
-</div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [137]:</pre></div><div id="cell-12" class="cell" data-execution_count="137">
+<div class="cell-container"><div class="cell-decorator"><pre>In [137]:</pre></div><div id="cell-13" class="cell" data-execution_count="137">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>display(df[df[<span class="st">'Source'</span>] <span class="op">==</span> <span class="st">'openai'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1012,7 +1001,6 @@ Analyzing causation...</code></pre>
 
 </div>
 </div>
-</div>
 </div></div>
      </main>
 <!-- /main column -->  <script id="quarto-html-after-body" type="application/javascript">
@@ -1050,18 +1038,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1093,7 +1070,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1128,7 +1145,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
