@@ -10,3 +10,323 @@ $font-size-root: 1rem;
     font-weight: bold !important;
 }
 
+.quarto-title-banner {
+    background: url('https://raw.githubusercontent.com/ntluong95/data/main/banner.png') no-repeat center center !important; 
+    background-size: cover !important;
+    padding-bottom: 20px; /* Adjust padding as needed */
+    position: relative;
+    z-index: 1; /* Ensure the header is above other elements */
+    overflow: hidden;
+    min-height: 300px; /* Set the minimum height to your desired value */
+    display: flex;
+    align-items: center; /* Center items vertically */
+}
+
+
+/* Style for the Abstract Section */
+#abstract {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+#abstract + .px-6 {
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.25rem;
+    background-color: #f8fafc; /* Light background color */
+    color: #0f172a; /* Dark text color */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.dark-mode #abstract + .px-6 {
+    background-color: #1e293b; /* Dark background color for dark mode */
+    color: #e2e8f0; /* Light text color for dark mode */
+}
+
+/* Ensure links are styled properly */
+#abstract + .px-6 a {
+    text-decoration: underline;
+    color: #3b82f6; /* Link color */
+}
+
+#abstract + .px-6 a:hover {
+    text-decoration: none;
+}
+
+.keywords {
+    margin-bottom: 5rem;
+    color: #0f172a; /* Dark text color */
+    display: block;
+}
+
+.keywords .block-title {
+    font-weight: bold !important;
+    color: #0f172a; /* Dark text color */
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+
+
+/* General Styles for the Banner */
+
+.page-columns .column-body {
+  grid-column: page-start / page-end !important;
+  background: rgba(255, 255, 255, 0.8);
+  padding-inline: 20px; /* Adjust the value (20px) as needed */
+  padding-top: 10px;
+  padding-top: 10px;
+}
+
+
+.quarto-title-meta-container {
+  grid-column: page-start / page-end !important;
+  background: rgba(255, 255, 255, 0.8);
+  padding-inline: 20px; /* Adjust the value (20px) as needed */
+  padding-bottom: 20px;
+  
+}
+
+
+.quarto-other-links-text-target {
+  grid-column: page-start / page-end !important;
+  background: rgba(255, 255, 255, 0.8);
+  padding-inline: 20px; /* Adjust the value (20px) as needed */
+  padding-bottom: 20px;
+  display: none;
+}
+
+.quarto-title.column-body {
+    display: grid;
+    grid-template-columns: 20fr 1fr;
+    grid-column-gap: 2.5em;
+    text-align: justify;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    min-height: 80px; // Adjust based on your design needs
+    align-items: center; // Centers content vertically within each grid cell
+}
+
+.quarto-title-meta-author {
+    display: grid !important;
+    grid-template-columns: 20fr 1fr !important;
+    grid-column-gap: 2.5em !important;
+    text-align: justify;
+}
+
+i.bi.bi-envelope {
+    color: blue !important;
+}
+
+.align-middle {
+    vertical-align: middle !important;
+    grid-column: page-start / page-end !important;
+    background: rgb(255 255 255 / 100%);
+    padding-inline: 20px;
+    padding-block: 0px;
+    min-height: 40px;
+    display: inherit;
+    align-items: center !important;
+}
+
+
+
+.quarto-title-meta-column-start {
+    /* Removed flex property here as we want the elements to stay next to each other */
+    font-size: 0.9rem;
+  }
+.manuscript-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+.manuscript-info > div {
+    white-space: nowrap; /* Keep the text on one line */
+  }
+  
+.manuscript-info > div:first-child::after {
+    content: "";
+    display: inline-block;
+    width: 1px; 
+    height: 100%; /* Make the divider as tall as its parent */
+    background-color: currentColor; 
+    margin: 0 0.5rem; /* Equal margins on both sides of the divider */
+    vertical-align: middle; /* Vertically align the divider to the middle of the text */
+  }
+
+.flex-none.pr-2.smallcaps {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.flex-none.mr-2.pl-2.smallcaps {
+    font-size: larger;
+}
+  
+.quarto-title-meta-column-icon {
+    margin-left: auto; /* Push the icons to the far right */
+    display: flex;    /* Enable flexbox for icon alignment */
+    align-items: center; /* Vertically align the icons */
+    gap: 0.35rem;      /* Add spacing between icons */
+  }
+
+/* Style the image icons with equal spacing and gray color */
+.science-icon {
+    width: 1rem;    /* Set a fixed width */
+    height: 1rem;   /* Set a fixed height */
+    margin-right: 0.5rem; 
+    filter: grayscale(100%); /* Make the icon gray */
+    transition: opacity 0.3s ease;
+  }
+  
+  .science-icon:hover {
+    opacity: 1;
+    filter: grayscale(0%); /* Remove grayscale on hover */
+  }
+  
+.science-info img { /* or .science-info img */
+    width: 1.25rem;    /* Set a fixed width */
+    height: 1.25rem;   /* Set a fixed height */
+    fill: currentColor; /* Ensure consistent color inheritance */
+    transition: opacity 0.3s ease;
+}
+
+#title-block-header.quarto-title-block.default .quarto-title .title {
+    margin-bottom: 0;
+    color: #111111;
+    font-weight: 800;
+    font-size: 2.25em;
+    margin-bottom: .5em;
+}
+
+.quarto-title-meta-author {
+    // max-width: 80%;  // Adjust this percentage based on your layout
+    margin: 0 auto;  // This centers the container if there's extra space on the sides
+    display: flex; /* or inline-flex, depending on your layout needs */
+    flex-wrap: wrap; /* Allow the authors to wrap to the next line if needed */
+    justify-content: center; // This will center the items
+    overflow: hidden; // Prevents overflow
+    text-overflow: ellipsis; // Adds an ellipsis if the text overflows
+    max-width: 1200px; // Limiting maximum width
+    min-width: 300px; // Ensuring it doesn't get too narrow
+    width: 100%; // Takes full width of its parent up to 1200px
+    margin: 0 auto; // Center align if there's extra space
+    justify-content: space-around; // This spreads out items evenly with space around them
+    align-items: center; // Aligns items vertically in the center
+}
+
+.quarto-title-meta-author .author {
+    margin-right: 10px; /* Add some space between authors */
+    white-space: nowrap;  /* Prevent the author's name from wrapping */
+}
+
+@media (max-width: 1200px) and (min-width: 500px) {
+    .quarto-title-meta-author {
+        justify-content: space-between; // Changes spacing behavior for mid-sized devices
+    }
+}
+
+.author {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+  
+.quarto-title-meta-contents {
+    display: flexbox;
+    flex-wrap: wrap;
+}
+  
+.author-group {
+    margin-right: 1rem;
+}
+
+#title-block-header .author {
+    margin-block-end: 0.2rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: inherit;
+    line-height: 1.25rem;
+    font-weight: 600;
+    color: #8a8989;
+    /* Key Adjustments */
+    max-width: 100%;       /* Ensure author block doesn't exceed container width */
+    overflow-wrap: break-word;  /* Allow long words to break and wrap */
+    word-wrap: break-word; /* (Older syntax for compatibility) */
+    hyphens: auto;          /* Enable hyphenation if supported */
+    display: inline-block;
+}
+  
+  
+.author-group .affiliation {
+    display: none;
+    margin-top: 0.5rem;
+}
+
+.popup {
+    display: none; /* Initially hidden */
+    position: absolute;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Rounded corners */
+    backdrop-filter: blur(12px); /* Mica blur effect */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 15px;
+    z-index: 1000;
+    width: 350px; /* Adjust the width as needed */
+    opacity: 0; /* For fade-in effect */
+    transform: translateY(-10px); /* For slide-down effect */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */
+    transition: box-shadow 0.2s ease; /* Transition for hover effect */
+}
+
+.popup:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
+}
+
+.popup h3 {
+    margin-top: 0;
+}
+
+.popup .popup-content {
+    margin-top: 10px;
+}
+
+.popup.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+
+
+  /* Adjust the margins and paddings of the title, authors, and other sections */
+
+
+/* Adjust specific elements if needed */
+.quarto-title-banner .quarto-title-meta-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0; /* Remove gap between elements */
+}
+
+.quarto-title-meta-column-end {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0em !important; 
+}
+
+// .quarto-title-meta-column-end {
+//     display: flex;
+//     flex-direction: column;
+//     margin-left: auto;
+// }
