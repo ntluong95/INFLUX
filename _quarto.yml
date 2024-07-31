@@ -5,6 +5,7 @@ project:
     - index.qmd
     - notebooks/*.qmd
     - notebooks/*.ipynb
+
   
 
 manuscript:
@@ -24,7 +25,68 @@ format:
     comments:
       hypothesis: true # comment side bar on the right
     citations-hover: true
+    number-sections: true
     crossrefs-hover: true
+    include-in-header:
+      - file: myst.html
   docx: default
 
+title: Emerging Pest and Pathogens (EPP)
+date: last-modified
+authors:
+  - name: Peter Søgaard Jørgensen
+    orcid: 0000-0002-2621-378X
+    corresponding: TRUE
+    email: peter.sogaard.jorgensen@su.se
+    affiliations:
+      - ref: swedesd
+      - ref: kva  
+      - ref: src
+    roles: writing
+  
+  - name: Diana Veronica Luna Gonzalez 
+    orcid: 0000-0003-0194-4137
+    email: diana.lunagonzalez@su.se
+    affiliations:
+      - ref: src   
+    
+  - name: Luong Nguyen Thanh
+    orcid: 0000-0002-9270-9345
+    email: nguyen.luong@uu.se
+    affiliations:
+      - ref: swedesd
+      - ref: kva
+      - ref: uac
 
+  - name: Melissa Barton
+    orcid: 0000-0003-0661-134X
+    email: melissa.barton@su.se
+    affiliations:
+      - ref: src             
+    
+  - name: Kathryn Louise Bjorklund
+    email: kathryn.bjorklund@su.se
+    affiliations:
+      - ref: src      
+    
+  - name: Ege Pehlivanoglu 
+    email: ege.pehlivanoglu@kva.se
+    affiliations:
+      - ref: kva  
+
+affiliations:
+  - id: swedesd
+    name: Sustainability Learning and Research Centre
+    address: MTC-huset, Dag Hammarskjöldsväg 14B, 75237 Uppsala
+
+  - id: kva
+    name: Kungliga Vetenskapsuniversitetet
+    address:  Lilla Frescativägen 4A, 114 18 Stockholm
+
+  - id: src
+    name: Stockholm Resilience Centre
+    address: Albanovägen 28, 106 91 Stockholm
+
+  - id: uac
+    name: Uppsala Antibiotic Centre
+    address: BMC, SciLifeLab Entrance C11, Room E10:4210, 752 37 Uppsala
