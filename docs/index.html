@@ -102,523 +102,443 @@ div.csl-indent {
 
   document.addEventListener("DOMContentLoaded", function () {
 
-    const newElement = document.createElement('div');
+    // Check if the current URL contains '/notebooks/'
 
-    newElement.className = "align-middle";
+    if (window.location.pathname.includes('/notebooks/')) {
 
-    newElement.innerHTML = `
+      console.log("Subpage detected. Hiding the banner.");
 
-        <div class="quarto-title-meta"> 
+      // Select the element with the class 'quarto-title-banner page-columns page-full'
 
-            <div class="quarto-title-meta-column-start"> 
+      var titleBanner = document.querySelector(".quarto-title-banner.page-columns.page-full");
 
-                <div class="manuscript-info"> 
 
-                    <div class="flex-none pr-2 smallcaps">Manuscript</div>
 
-                    <div class="flex-none mr-2 pl-2 smallcaps"> 
+      // If the element exists, hide it
 
-                    <span class="font-semibold">A preprint version</span> 
+      if (titleBanner) {
 
-                </div>
+        titleBanner.style.display = 'none';
 
-            </div>
+      }
 
-        </div>
+    } else {
 
-            <div class="quarto-title-meta-column-icon"> 
+      // Main page specific code
 
-            <div class="science-info sm:block"> 
+      const newElement = document.createElement('div');
 
-                <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-100 text-inherit hover:text-inherit" aria-label="Content License: Creative Commons Attribution Share Alike 3.0 Unported (CC-BY-SA-3.0)">
+      newElement.className = "align-middle";
 
-                <img class="science-icon inline-block mx-1" src="https://raw.githubusercontent.com/ntluong95/data/main/cc.svg" alt="CC BY-SA 3.0" />
+      newElement.innerHTML = `
 
-                <img class="science-icon inline-block mr-1" src="https://raw.githubusercontent.com/ntluong95/data/main/by.svg" alt="Credit must be given to the creator" />
+          <div class="quarto-title-meta"> 
 
-                <img class="science-icon inline-block mr-1" src="https://raw.githubusercontent.com/ntluong95/data/main/sa.svg" alt="Adaptations must be shared under the same terms" />
+              <div class="quarto-title-meta-column-start"> 
 
-                </a>
+                  <div class="manuscript-info"> 
 
-                <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" title="Code License: MIT License (MIT)" class="text-inherit hover:text-inherit">
+                      <div class="flex-none pr-2 smallcaps">Manuscript</div>
 
-                <img class="science-icon mx-1 inline-block opacity-60 hover:opacity-100 hover:text-[#599F46]" src="https://raw.githubusercontent.com/ntluong95/data/main/mit.svg" alt="MIT License" />
+                      <div class="flex-none mr-2 pl-2 smallcaps"> 
 
-                </a>
+                      <span class="font-semibold">A preprint version</span> 
 
-                <a href="https://en.wikipedia.org/wiki/Open_access" target="_blank" rel="noopener noreferrer" title="Open Access" class="text-inherit hover:text-inherit">
+                  </div>
 
-                <img class="science-icon mr-1 inline-block opacity-60 hover:opacity-100 hover:text-[#E18435]" src="https://raw.githubusercontent.com/ntluong95/data/main/open-access.svg" alt="Open Access" />
+              </div>
 
-                </a>
+          </div>
 
-                <a href="https://github.com/ntluong95/INFLUX" title="GitHub Repository: ntluong95/INFLUX" target="_blank" rel="noopener noreferrer" class="text-inherit hover:text-inherit">
+              <div class="quarto-title-meta-column-icon"> 
 
-                <img class="science-icon inline-block mr-1 opacity-60 hover:opacity-100" src="https://raw.githubusercontent.com/ntluong95/data/main/github.svg" alt="GitHub Repository" />
+              <div class="science-info sm:block"> 
 
-                </a>
+                  <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-100 text-inherit hover:text-inherit" aria-label="Content License: Creative Commons Attribution Share Alike 3.0 Unported (CC-BY-SA-3.0)">
 
-            </div> 
+                  <img class="science-icon inline-block mx-1" src="https://raw.githubusercontent.com/ntluong95/data/main/cc.svg" alt="CC BY-SA 3.0" />
 
-        </div>
+                  <img class="science-icon inline-block mr-1" src="https://raw.githubusercontent.com/ntluong95/data/main/by.svg" alt="Credit must be given to the creator" />
 
-    </div>
+                  <img class="science-icon inline-block mr-1" src="https://raw.githubusercontent.com/ntluong95/data/main/sa.svg" alt="Adaptations must be shared under the same terms" />
 
-    `;
+                  </a>
 
+                  <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" title="Code License: MIT License (MIT)" class="text-inherit hover:text-inherit">
 
+                  <img class="science-icon mx-1 inline-block opacity-60 hover:opacity-100 hover:text-[#599F46]" src="https://raw.githubusercontent.com/ntluong95/data/main/mit.svg" alt="MIT License" />
 
+                  </a>
 
+                  <a href="https://en.wikipedia.org/wiki/Open_access" target="_blank" rel="noopener noreferrer" title="Open Access" class="text-inherit hover:text-inherit">
 
-    // Find the target element (the container for the icons) and insert the new element
+                  <img class="science-icon mr-1 inline-block opacity-60 hover:opacity-100 hover:text-[#E18435]" src="https://raw.githubusercontent.com/ntluong95/data/main/open-access.svg" alt="Open Access" />
 
-    const targetElement = document.querySelector('.column-body'); 
+                  </a>
 
-    targetElement.parentNode.insertBefore(newElement, targetElement); 
+                  <a href="https://github.com/ntluong95/INFLUX" title="GitHub Repository: ntluong95/INFLUX" target="_blank" rel="noopener noreferrer" class="text-inherit hover:text-inherit">
 
+                  <img class="science-icon inline-block mr-1 opacity-60 hover:opacity-100" src="https://raw.githubusercontent.com/ntluong95/data/main/github.svg" alt="GitHub Repository" />
 
+                  </a>
 
-    const columnStart = document.querySelector('.quarto-title-meta-column-start');
+              </div> 
 
-    const metaElement = columnStart.querySelector('.quarto-title-meta'); // Select the nested element
+          </div>
 
+      </div>
 
+      `;
 
-    if (metaElement) {
 
-        columnStart.parentNode.insertBefore(metaElement, columnStart.nextSibling); // Move it outside 
 
-    }
+      // Find the target element (the container for the icons) and insert the new element
 
+      const targetElement = document.querySelector('.column-body'); 
 
+      targetElement.parentNode.insertBefore(newElement, targetElement); 
 
-    // Select the abstract and keywords sections
 
-    var abstractElement = document.querySelector(".abstract");
 
-    var keywordsElement = document.querySelector(".keywords");
+      const columnStart = document.querySelector('.quarto-title-meta-column-start');
 
+      const metaElement = columnStart.querySelector('.quarto-title-meta'); // Select the nested element
 
 
-    // Select the introduction heading
 
-    var introductionHeading = document.querySelector(
+      if (metaElement) {
 
-      'h2[data-anchor-id="sec-introduction"]'
+          columnStart.parentNode.insertBefore(metaElement, columnStart.nextSibling); // Move it outside 
 
-    );
+      }
 
 
 
-    if (abstractElement && introductionHeading) {
+      // Select the abstract and keywords sections
 
-      // Create the new structure for the abstract section
+      var abstractElement = document.querySelector(".abstract");
 
-      var newAbstractContainer = document.createElement("div");
+      var keywordsElement = document.querySelector(".keywords");
 
-      var newAbstractTitle = document.createElement("h3");
 
-      newAbstractTitle.id = "abstract";
 
-      newAbstractTitle.className = "mb-3 text-base font-semibold group";
+      // Select the introduction heading
 
-      newAbstractTitle.innerHTML =
+      var introductionHeading = document.querySelector(
 
-        'Abstract<a class="no-underline text-inherit hover:text-inherit ml-2 select-none transition-opacity opacity-0 focus:opacity-100 group-hover:opacity-70" href="#abstract" title="Link to Abstract" aria-label="Link to Abstract">¶</a>';
-
-
-
-      var newAbstractContent = document.createElement("div");
-
-      newAbstractContent.className =
-
-        "px-6 py-1 mb-3 rounded-sm bg-slate-50 dark:bg-slate-800";
-
-
-
-      var newAbstractInnerContent = document.createElement("div");
-
-      newAbstractInnerContent.id = "soTooQ8JmG";
-
-      newAbstractInnerContent.className = "relative group/block col-body";
-
-
-
-      // Move the actual abstract content
-
-      var abstractParagraph = abstractElement.querySelector("p");
-
-      newAbstractInnerContent.appendChild(abstractParagraph);
-
-
-
-      // Append all new elements to the new abstract container
-
-      newAbstractContent.appendChild(newAbstractInnerContent);
-
-      newAbstractContainer.appendChild(newAbstractTitle);
-
-      newAbstractContainer.appendChild(newAbstractContent);
-
-
-
-      // Insert the new abstract container before the introduction heading
-
-      introductionHeading.parentNode.insertBefore(
-
-        newAbstractContainer,
-
-        introductionHeading
+        'h2[data-anchor-id="sec-introduction"]'
 
       );
 
 
 
-      // Remove the old abstract element
+      if (abstractElement && introductionHeading) {
 
-      abstractElement.remove();
+        // Create the new structure for the abstract section
+
+        var newAbstractContainer = document.createElement("div");
+
+        var newAbstractTitle = document.createElement("h3");
+
+        newAbstractTitle.id = "abstract";
+
+        newAbstractTitle.className = "mb-3 text-base font-semibold group";
+
+        newAbstractTitle.innerHTML =
+
+          'Abstract<a class="no-underline text-inherit hover:text-inherit ml-2 select-none transition-opacity opacity-0 focus:opacity-100 group-hover:opacity-70" href="#abstract" title="Link to Abstract" aria-label="Link to Abstract">¶</a>';
 
 
 
-      // Move the keywords section if it exists
+        var newAbstractContent = document.createElement("div");
 
-      if (keywordsElement) {
+        newAbstractContent.className =
+
+          "px-6 py-1 mb-3 rounded-sm bg-slate-50 dark:bg-slate-800";
+
+
+
+        var newAbstractInnerContent = document.createElement("div");
+
+        newAbstractInnerContent.id = "soTooQ8JmG";
+
+        newAbstractInnerContent.className = "relative group/block col-body";
+
+
+
+        // Move the actual abstract content
+
+        var abstractParagraph = abstractElement.querySelector("p");
+
+        newAbstractInnerContent.appendChild(abstractParagraph);
+
+
+
+        // Append all new elements to the new abstract container
+
+        newAbstractContent.appendChild(newAbstractInnerContent);
+
+        newAbstractContainer.appendChild(newAbstractTitle);
+
+        newAbstractContainer.appendChild(newAbstractContent);
+
+
+
+        // Insert the new abstract container before the introduction heading
 
         introductionHeading.parentNode.insertBefore(
 
-          keywordsElement,
+          newAbstractContainer,
 
           introductionHeading
 
         );
 
-      }
-
-    }
-
-  });
 
 
+        // Remove the old abstract element
 
-  // !Redesign author display
+        abstractElement.remove();
 
 
 
-  document.addEventListener("DOMContentLoaded", function () {
+        // Move the keywords section if it exists
 
-    const container = document.querySelector(".quarto-title-meta-author");
+        if (keywordsElement) {
 
-    const contents = container.querySelectorAll(".quarto-title-meta-contents");
+          introductionHeading.parentNode.insertBefore(
 
-    const newContainer = document.createElement("div");
+            keywordsElement,
 
-    newContainer.classList.add("quarto-title-meta-contents");
-
-    const popup = document.createElement("div");
-
-    popup.id = "affiliation-popup";
-
-    popup.classList.add("popup");
-
-    document.body.appendChild(popup);
-
-
-
-    let currentOpenPopup = null;
-
-
-
-    for (let i = 0; i < contents.length; i++) {
-
-      const content = contents[i];
-
-      const authorElement = content.querySelector(".author");
-
-
-
-      if (authorElement) {
-
-        newContainer.appendChild(authorElement);
-
-
-
-        const affiliationContent = document.createElement("div");
-
-        affiliationContent.classList.add("popup-content");
-
-        if (i + 1 < contents.length) {
-
-          const nextContent = contents[i + 1];
-
-          const affiliations = nextContent.querySelectorAll(".affiliation");
-
-          affiliations.forEach((affiliation) =>
-
-            affiliationContent.appendChild(affiliation.cloneNode(true))
+            introductionHeading
 
           );
-
-          i++;
 
         }
 
-
-
-        authorElement.addEventListener("click", function (event) {
-
-          event.preventDefault();
-
-          event.stopPropagation();
+      }
 
 
 
-          if (currentOpenPopup) {
+      // Redesign author display
 
-            currentOpenPopup.classList.remove("active");
+
+
+      const container = document.querySelector(".quarto-title-meta-author");
+
+      const contents = container.querySelectorAll(".quarto-title-meta-contents");
+
+      const newContainer = document.createElement("div");
+
+      newContainer.classList.add("quarto-title-meta-contents");
+
+      const popup = document.createElement("div");
+
+      popup.id = "affiliation-popup";
+
+      popup.classList.add("popup");
+
+      document.body.appendChild(popup);
+
+
+
+      let currentOpenPopup = null;
+
+
+
+      for (let i = 0; i < contents.length; i++) {
+
+        const content = contents[i];
+
+        const authorElement = content.querySelector(".author");
+
+
+
+        if (authorElement) {
+
+          newContainer.appendChild(authorElement);
+
+
+
+          const affiliationContent = document.createElement("div");
+
+          affiliationContent.classList.add("popup-content");
+
+          if (i + 1 < contents.length) {
+
+            const nextContent = contents[i + 1];
+
+            const affiliations = nextContent.querySelectorAll(".affiliation");
+
+            affiliations.forEach((affiliation) =>
+
+              affiliationContent.appendChild(affiliation.cloneNode(true))
+
+            );
+
+            i++;
 
           }
 
-          currentOpenPopup = popup;
+
+
+          authorElement.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            event.stopPropagation();
 
 
 
-          popup.innerHTML = "";
+            if (currentOpenPopup) {
 
-          const popupHeader = document.createElement("h3");
+              currentOpenPopup.classList.remove("active");
 
-          popupHeader.innerText = authorElement.textContent.trim();
+            }
 
-          popup.appendChild(popupHeader);
-
-          popup.appendChild(affiliationContent.cloneNode(true));
-
-          popup.style.visibility = "hidden";
-
-          popup.classList.add("active");
+            currentOpenPopup = popup;
 
 
 
-          const rect = authorElement.getBoundingClientRect();
+            popup.innerHTML = "";
 
-          const popupWidth = popup.offsetWidth;
+            const popupHeader = document.createElement("h3");
 
-          const maxLeft = window.innerWidth - popupWidth;
+            popupHeader.innerText = authorElement.textContent.trim();
 
-          const popupLeft = Math.min(
+            popup.appendChild(popupHeader);
 
-            Math.max(0, rect.left + rect.width / 2 - popupWidth / 2),
+            popup.appendChild(affiliationContent.cloneNode(true));
 
-            maxLeft
+            popup.style.visibility = "hidden";
 
-          );
-
-
-
-          popup.style.left = popupLeft + "px";
-
-          popup.style.top = rect.bottom + window.scrollY + "px";
-
-          popup.style.visibility = "visible";
-
-        });
-
-      }
-
-    }
+            popup.classList.add("active");
 
 
 
-    document.addEventListener("click", function (event) {
+            const rect = authorElement.getBoundingClientRect();
 
-      if (
+            const popupWidth = popup.offsetWidth;
 
-        currentOpenPopup &&
+            const maxLeft = window.innerWidth - popupWidth;
 
-        !currentOpenPopup.contains(event.target) &&
+            const popupLeft = Math.min(
 
-        !event.target.closest(".quarto-title-meta-author")
+              Math.max(0, rect.left + rect.width / 2 - popupWidth / 2),
 
-      ) {
+              maxLeft
 
-        currentOpenPopup.classList.remove("active");
+            );
 
-        currentOpenPopup = null;
+
+
+            popup.style.left = popupLeft + "px";
+
+            popup.style.top = rect.bottom + window.scrollY + "px";
+
+            popup.style.visibility = "visible";
+
+          });
+
+        }
 
       }
 
-    });
 
 
+      document.addEventListener("click", function (event) {
 
-    container.innerHTML = "";
+        if (
 
-    container.appendChild(newContainer);
+          currentOpenPopup &&
 
-  });
+          !currentOpenPopup.contains(event.target) &&
 
+          !event.target.closest(".quarto-title-meta-author")
 
+        ) {
 
-  // Remove blank div insde quarto-title-banner
+          currentOpenPopup.classList.remove("active");
 
-
-
-  document.addEventListener("DOMContentLoaded", function () {
-
-    var titleBanner = document.querySelector(".quarto-title-banner");
-
-
-
-    if (titleBanner) {
-
-      // Select all div elements inside the quarto-title-banner
-
-      var divs = titleBanner.querySelectorAll("div");
-
-
-
-      divs.forEach(function (div) {
-
-        // Check if the div is empty
-
-        if (!div.innerHTML.trim()) {
-
-          // Remove the empty div
-
-          div.remove();
+          currentOpenPopup = null;
 
         }
 
       });
 
+
+
+      container.innerHTML = "";
+
+      container.appendChild(newContainer);
+
+
+
+      // Remove blank div inside quarto-title-banner
+
+
+
+      var titleBanner = document.querySelector(".quarto-title-banner");
+
+
+
+      if (titleBanner) {
+
+        // Select all div elements inside the quarto-title-banner
+
+        var divs = titleBanner.querySelectorAll("div");
+
+
+
+        divs.forEach(function (div) {
+
+          // Check if the div is empty
+
+          if (!div.innerHTML.trim()) {
+
+            // Remove the empty div
+
+            div.remove();
+
+          }
+
+        });
+
+      }
+
+
+
+      const metaAuthor = document.querySelector('.quarto-title-meta-author'); 
+
+      const metaColumnStart = metaAuthor.nextElementSibling; // Get the element right after the author section
+
+      const otherFormatsTarget = document.querySelector('.quarto-title-meta-column-end.quarto-other-formats-target');
+
+
+
+      if (metaColumnStart && otherFormatsTarget) { // Add a check for the existence of elements
+
+          // Append the 'otherFormatsTarget' element to the 'metaColumnStart' element
+
+          metaColumnStart.appendChild(otherFormatsTarget);
+
+
+
+          // Optionally, adjust the styling
+
+          otherFormatsTarget.style.display = 'inline-block';
+
+          otherFormatsTarget.style.marginLeft = '20px'; // Add some spacing
+
+      } else {
+
+          console.warn("One or more required elements were not found."); 
+
+      }
+
     }
 
   });
-
-
-
-
-
-//  function moveMetaInfo() {
-
-//             // Select the 'quarto-title-meta' element that is nested within 'quarto-title-meta-column-start'
-
-//             const metaInfo = document.querySelector('.quarto-title-meta-column-start .quarto-title-meta');
-
-
-
-//             // Select the 'quarto-title-meta-column-end quarto-other-formats-target' element
-
-//             const otherFormats = document.querySelector('.quarto-title-meta-column-end.quarto-other-formats-target');
-
-
-
-//             // Check if the elements exist
-
-//             if (!metaInfo || !otherFormats) {
-
-//                 console.error('Required meta info or formats section not found');
-
-//                 return;
-
-//             }
-
-
-
-//             // Select the 'quarto-title column-body' element
-
-//             const titleColumnBody = document.querySelector('.quarto-title.column-body');
-
-
-
-//             // Check if the target container exists
-
-//             if (!titleColumnBody) {
-
-//                 console.error('Title column body not found');
-
-//                 return;
-
-//             }
-
-
-
-//             // Create right column if it doesn't exist
-
-//             let rightColumn = titleColumnBody.querySelector('.right-column');
-
-//             if (!rightColumn) {
-
-//                 rightColumn = document.createElement('div');
-
-//                 rightColumn.className = 'right-column';
-
-//                 titleColumnBody.appendChild(rightColumn); // Append the new right column to the column body
-
-//             }
-
-
-
-//             // Append the meta info to the right column
-
-//             rightColumn.appendChild(metaInfo);
-
-//             // Append the other formats right below the meta info in the right column
-
-//             rightColumn.appendChild(otherFormats);
-
-//         }
-
-
-
-//         // Wait for the DOM to fully load before running the script
-
-//         document.addEventListener('DOMContentLoaded', moveMetaInfo);
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  const metaAuthor = document.querySelector('.quarto-title-meta-author'); 
-
-  const metaColumnStart = metaAuthor.nextElementSibling; // Get the element right after the author section
-
-  const otherFormatsTarget = document.querySelector('.quarto-title-meta-column-end.quarto-other-formats-target');
-
-
-
-  if (metaColumnStart && otherFormatsTarget) { // Add a check for the existence of elements
-
-      // Append the 'otherFormatsTarget' element to the 'metaColumnStart' element
-
-      metaColumnStart.appendChild(otherFormatsTarget);
-
-
-
-      // Optionally, adjust the styling
-
-      otherFormatsTarget.style.display = 'inline-block';
-
-      otherFormatsTarget.style.marginLeft = '20px'; // Add some spacing
-
-  } else {
-
-      console.warn("One or more required elements were not found."); 
-
-  }
-
-});
-
-
-
-
-
-
-
-
-
-
 
 </script>
 
@@ -770,7 +690,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <li><a href="#sec-conclusion" id="toc-sec-conclusion" class="nav-link" data-scroll-target="#sec-conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
   <li><a href="#sec-reference" id="toc-sec-reference" class="nav-link" data-scroll-target="#sec-reference"><span class="header-section-number">6</span> References</a></li>
   </ul>
-<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="notebooks\causal-chains-preview.html"><i class="bi bi-journal-code"></i>ChatGPT &amp; Google Gemini prompt</a></li><li><a href="notebooks\GemCausal-preview.html"><i class="bi bi-journal-code"></i>Emerging Pest and Pathogens (EPP)</a></li><li><a href="notebooks\causalizeR-preview.html"><i class="bi bi-journal-code"></i>Emerging Pest and Pathogens (EPP)</a></li><li><a href="notebooks\WHO-DON-preview.html"><i class="bi bi-journal-code"></i>Scraping data from WHO-DON website</a></li></ul></div></nav>
+<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="notebooks\causalizeR-preview.html"><i class="bi bi-journal-code"></i>CausalizeR package testing</a></li><li><a href="notebooks\causal-chains-preview.html"><i class="bi bi-journal-code"></i>ChatGPT &amp; Google Gemini prompt</a></li><li><a href="notebooks\WHO-DON-preview.html"><i class="bi bi-journal-code"></i>Scraping data from WHO-DON</a></li></ul></div></nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
@@ -799,8 +719,8 @@ Across 397 outbreaks of international concern, as classified by the World Health
 <p>Driving Factors Description <span class="citation" data-cites="bogich2012a">(<a href="#ref-bogich2012a" role="doc-biblioref">Bogich et al. 2012b</a>)</span>. Drivers were assigned on the basis of a text search of the outbreak reports for key words and phrases indicating an IOM-defined driver directly or inferred from text describing actions taken immediately following the outbreak</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 14%">
-<col style="width: 85%">
+<col style="width: 10%">
+<col style="width: 89%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -851,7 +771,8 @@ Across 397 outbreaks of international concern, as classified by the World Health
 </tr>
 <tr class="odd">
 <td>Medical Industry changes</td>
-<td>Advances in the medical industry such as blood transfusions, use of plastic catheters or artificial heart valves); other examples include blood product safety, organ, tissue and xeno-transplantation</td>
+<td><p>Advances in the medical industry such as blood transfusions, use of plastic catheters or artificial heart valves); other examples include</p>
+<p>blood product safety, organ, tissue and xeno-transplantation</p></td>
 </tr>
 <tr class="even">
 <td>Microbial adaptation and change</td>
@@ -879,13 +800,13 @@ Across 397 outbreaks of international concern, as classified by the World Health
 <div id="glimpse-data" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>glimpse(corpus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 18,612
+<pre><code>Rows: 18,648
 Columns: 5
-$ DonID_standardized &lt;chr&gt; "2024-DON518", "2024-DON518", "2024-DON518", "2024-…
-$ UrlName            &lt;chr&gt; "2024-DON518", "2024-DON518", "2024-DON518", "2024-…
-$ DonId              &lt;chr&gt; "2024-DON518", "2024-DON518", "2024-DON518", "2024-…
+$ DonID_standardized &lt;chr&gt; "2024-DON525", "2024-DON525", "2024-DON525", "2024-…
+$ UrlName            &lt;chr&gt; "2024-DON525", "2024-DON525", "2024-DON525", "2024-…
+$ DonId              &lt;chr&gt; "2024-DON525", "2024-DON525", "2024-DON525", "2024-…
 $ InformationType    &lt;chr&gt; "Summary", "Overview", "Epidemiology", "Assessment"…
-$ Text               &lt;chr&gt; "As of 30 April 2024, over 7.6 million dengue cases…</code></pre>
+$ Text               &lt;chr&gt; "The International Health Regulations (IHR) Nationa…</code></pre>
 </div>
 </div>
 </div>
@@ -1353,7 +1274,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {

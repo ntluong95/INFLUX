@@ -1,16 +1,75 @@
----
+--- 
+title: Emerging Pest and Pathogens (EPP)
+authors:
+  - name: Peter Søgaard Jørgensen
+    orcid: 0000-0002-2621-378X
+    corresponding: TRUE
+    email: peter.sogaard.jorgensen@su.se
+    affiliations:
+      - ref: swedesd
+      - ref: kva  
+      - ref: src
+    roles: writing
+  
+  - name: Diana Veronica Luna Gonzalez 
+    orcid: 0000-0003-0194-4137
+    email: diana.lunagonzalez@su.se
+    affiliations:
+      - ref: src   
+    
+  - name: Luong Nguyen Thanh
+    orcid: 0000-0002-9270-9345
+    email: nguyen.luong@uu.se
+    affiliations:
+      - ref: swedesd
+      - ref: kva
+      - ref: uac
+
+  - name: Melissa Barton
+    orcid: 0000-0003-0661-134X
+    email: melissa.barton@su.se
+    affiliations:
+      - ref: src             
+    
+  - name: Kathryn Louise Bjorklund
+    email: kathryn.bjorklund@su.se
+    affiliations:
+      - ref: src      
+    
+  - name: Ege Pehlivanoglu 
+    email: ege.pehlivanoglu@kva.se
+    affiliations:
+      - ref: kva  
+
+affiliations:
+  - id: swedesd
+    name: Sustainability Learning and Research Centre
+    address: MTC-huset, Dag Hammarskjöldsväg 14B, 75237 Uppsala
+
+  - id: kva
+    name: Kungliga Vetenskapsuniversitetet
+    address:  Lilla Frescativägen 4A, 114 18 Stockholm
+
+  - id: src
+    name: Stockholm Resilience Centre
+    address: Albanovägen 28, 106 91 Stockholm
+
+  - id: uac
+    name: Uppsala Antibiotic Centre
+    address: BMC, SciLifeLab Entrance C11, Room E10:4210, 752 37 Uppsala
+
 keywords: [EPP, drivers]
 abstract: |
   Emerging pests and pathogens (EPPs) are an increasingly disruptive force to human society that can cause large social and ecological changes far beyond their initial site of emergence. Three forces contribute to this growing challenge now and in the foreseeable future: first, potential EPPs are more likely to come in to first contact with human habitats as human land use expands. Second, denser human trade and travel networks mean that EPPs are more likely to emerge in new regions. Third, human technology, such as biocidal agents, increases risks for re-emergence. Understanding how EPPs cascade across scales in social-ecological systems is therefore an urgent priority, but no formal approach currently exists for analysing the ripple effects at scale, from their seeding to their lasting societal imprints. This project aims to fill this gap in sustainability science for society.
-
 key-points:
   - Key point 1
   - Key point 2
-
+date: last-modified
 bibliography: references.bib
 # citation:
 #   container-title: TBD
 ---
+
 
 ::: {.callout-note appearance="simple" collapse="true"}
 This is a Quarto reproduction of a paper investigating drivers of EPP under the INFLUX project
@@ -25,23 +84,39 @@ Across 397 outbreaks of international concern, as classified by the World Health
 
 Driving Factors Description [@bogich2012a]. Drivers were assigned on the basis of a text search of the outbreak reports for key words and phrases indicating an IOM-defined driver directly or inferred from text describing actions taken immediately following the outbreak
 
-| Driving Factors                      | Description                                                                                                                                                                                                                      |
-|--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Agricultural & Food industry changes | Agricultural intensification of crops or animal husbandry and all aspects of food production from manufacturing to marketing; global trade and travel related to food are included here                                           |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Driving Factors                      | Description                                                                                                                                                                                                                                                                                                                                             |
++======================================+=========================================================================================================================================================================================================================================================================================================================================================+
+| Agricultural & Food industry changes | Agricultural intensification of crops or animal husbandry and all aspects of food production from manufacturing to marketing; global trade and travel related to food are included here                                                                                                                                                                 |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Breakdown of public Health measures  | Breakdown in public health measures that have previously worked to prevent infections, including inadequate sanitation and hygiene (e.g. shortages of potable water), poor immunization coverage or lack of infrastructure to purchase and deliver vaccine, TB control, control of vector-borne and zoonotic disease, and antiquated public health laws |
-| Bushmeat                             | Both hunting and consumption of wildlife, including tracking, capturing and handling involved in hunting                                                                                                                         |
-| Climate and weather                  | Short- and long-term fluctuations in temperature and rainfall affecting pathogens, vectors and hosts                                                                                                                             |
-| Human demographics and behavior      | Demographic and behavioral factors that affect human transmission of disease, examples include migration, population growth, aging, urbanization, and high-risk behaviors                                                         |
-| Human susceptibility to infection    | Elements of human physiology that determine susceptibility, including genetic, physical, cellular and molecular defenses. Examples include malnutrition, impaired immunity, genetic polymorphisms                                 |
-| Intent to harm                       | Bioterrorism or threat of attack using biological agents, typically via aerosol dissemination                                                                                                                                    |
-| International travel and commerce    | Movement of humans and animals and other goods, including volume and speed of air travel, cruise ships - does not include global travel and trade related to food                                                                |
-| Lack of political will               | Lack of global political commitment and general complacency toward infectious diseases                                                                                                                                           |
-| Land use changes                     | Changes in land use patterns due to anthropogenic activities, including encroachment, expansion of agricultural activities or urban areas, deforestation, dams and irrigation infrastructure, or reforestation                      |
-| Medical Industry changes             | Advances in the medical industry such as blood transfusions, use of plastic catheters or artificial heart valves); other examples include blood product safety, organ, tissue and xeno-transplantation                              |
-| Microbial adaptation and change      | Antibiotic use and resistance                                                                                                                                                                                                    |
-| War and famine                       | Armed conflict, loss of food security, and handicapping of medical infrastructure due to conflict, including the displacement of humans to refugee camps, for example, during war times                                           |
-| Unspecified                          | Unable to assign driver                                                                                                                                                                                                          |
-
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Bushmeat                             | Both hunting and consumption of wildlife, including tracking, capturing and handling involved in hunting                                                                                                                                                                                                                                                |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Climate and weather                  | Short- and long-term fluctuations in temperature and rainfall affecting pathogens, vectors and hosts                                                                                                                                                                                                                                                    |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Human demographics and behavior      | Demographic and behavioral factors that affect human transmission of disease, examples include migration, population growth, aging, urbanization, and high-risk behaviors                                                                                                                                                                               |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Human susceptibility to infection    | Elements of human physiology that determine susceptibility, including genetic, physical, cellular and molecular defenses. Examples include malnutrition, impaired immunity, genetic polymorphisms                                                                                                                                                       |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Intent to harm                       | Bioterrorism or threat of attack using biological agents, typically via aerosol dissemination                                                                                                                                                                                                                                                           |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| International travel and commerce    | Movement of humans and animals and other goods, including volume and speed of air travel, cruise ships - does not include global travel and trade related to food                                                                                                                                                                                       |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Lack of political will               | Lack of global political commitment and general complacency toward infectious diseases                                                                                                                                                                                                                                                                  |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Land use changes                     | Changes in land use patterns due to anthropogenic activities, including encroachment, expansion of agricultural activities or urban areas, deforestation, dams and irrigation infrastructure, or reforestation                                                                                                                                          |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Medical Industry changes             | Advances in the medical industry such as blood transfusions, use of plastic catheters or artificial heart valves); other examples include                                                                                                                                                                                                               |
+|                                      |                                                                                                                                                                                                                                                                                                                                                         |
+|                                      | blood product safety, organ, tissue and xeno-transplantation                                                                                                                                                                                                                                                                                            |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Microbial adaptation and change      | Antibiotic use and resistance                                                                                                                                                                                                                                                                                                                           |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| War and famine                       | Armed conflict, loss of food security, and handicapping of medical infrastructure due to conflict, including the displacement of humans to refugee camps, for example, during war times                                                                                                                                                                 |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Unspecified                          | Unable to assign driver                                                                                                                                                                                                                                                                                                                                 |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ![](images/paste-1.png)
 

@@ -1,7 +1,4 @@
----
-title: Scraping data from WHO-DON website
-author: Luong Nguyen Thanh
----
+# Scraping data from WHO-DON
 
 ## Load necessary packages
 
