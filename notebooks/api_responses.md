@@ -1,0 +1,170 @@
+
+
+## API Response for Article ID 2024-DON538:
+
+1. Raw text with marked causes and effects:
+Although no cases of WNV have been documented in birds or horses in the country, it is possible that the virus is circulating in these populations undetected. Despite this, the overall impact on public health remains limited at this stage, as there is currently only one recorded human case and appropriate public health response measures have been implemented, as described above. The risk of international dissemination of WNV from Barbados is low. The virus is primarily transmitted through (C1) mosquito bites (C1), with (C2) birds as the natural hosts (C2). There is no evidence to suggest that WNV spreads easily between humans or from horses to mosquitoes.
+
+2. Extracted causes and effects:
+C1: mosquito bites -> E1: transmission of the virus, Causality type: T1
+C2: birds as the natural hosts -> E1: transmission of the virus, Causality type: T1
+
+
+
+## API Response for Article ID 2024-DON538:
+
+1. Raw text with marked causes and effects:
+Therefore, the potential for widespread international transmission remains low. Based on these criteria, the overall risk related to the public health remains low. WHO will continue to evaluate the epidemiological situation in Barbados.
+
+2. Extracted causes and effects:
+No relevant causality related to the emergence or transmission of pests and pathogens is present in the input text.
+
+
+
+## API Response for Article ID 2024-DON536:
+
+1. Raw text with marked causes and effects:
+Since the first report of MERS-CoV in the Kingdom of Saudi Arabia (KSA) in 2012 until now, human infections have been reported in 27 countries, spanning all six WHO regions. The majority of MERS-CoV cases (2205; 84%), have been reported in KSA, including this newly reported case. The notification of this case does not change the overall risk assessment. The new case reported is believed to have acquired (E1) MERS-CoV infection (E1) locally within KSA due to (C1) local transmission (C1).
+
+2. Extracted causes and effects:
+C1: local transmission -> E1: MERS-CoV infection, Causality type: T1
+
+
+
+## API Response for Article ID 2024-DON536:
+
+1. Raw text with marked causes and effects:
+However, the (E1) potential for international transmission (E1) is increased due to the fact that the (C1) individual visited Pakistan (C1), while a (C1) high-risk contact traveled to South Asia within the 14-day follow-up period (C1). Both individuals had arranged their travels prior to the occurrence of the event and before the test results of the case were obtained and disseminated. WHO expects that additional cases of MERS-CoV infection will be reported from the Middle East and/or other countries where (E2) MERS-CoV is circulating in dromedaries (E2). In addition, cases will continue to be exported to other countries by individuals who were exposed to the virus through (C2) contact with dromedaries or their products (for example, consumption of raw camel milk) (C2), or in a (C2) health-care setting (C2).
+
+2. Extracted causes and effects:
+C1: individual visited Pakistan -> E1: potential for international transmission, Causality type: T3
+C1: high-risk contact traveled to South Asia within the 14-day follow-up period -> E1: potential for international transmission, Causality type: T3
+C2: contact with dromedaries or their products -> E2: MERS-CoV is circulating in dromedaries, Causality type: T3
+C2: health-care setting -> E2: MERS-CoV is circulating in dromedaries, Causality type: T3
+
+
+
+## API Response for Article ID 2024-DON536:
+
+1. Raw text with marked causes and effects:
+Human-to-human transmission of MERS-CoV may occur if there are (C1) delays in identifying the infection (C1), particularly in countries that are not well-acquainted with the disease, as well as (C1) slow triage of suspected cases (C1) and (C1) delays in the implementation of standard infection prevention and control measures (C1). WHO continues to monitor the epidemiological situation and conducts risk assessments based on the latest available information.
+
+2. Extracted causes and effects:
+C1: delays in identifying the infection -> E1: Human-to-human transmission of MERS-CoV, Causality type: T3
+C1: slow triage of suspected cases -> E1: Human-to-human transmission of MERS-CoV, Causality type: T3
+C1: delays in the implementation of standard infection prevention and control measures -> E1: Human-to-human transmission of MERS-CoV, Causality type: T3
+
+
+
+## API Response for Article ID 2024-DON537:
+
+1. Raw text with marked causes and effects:
+Marburg virus disease (MVD) is caused by the same family of viruses (Filoviridae) that causes Ebola disease. MVD is an epidemic-prone disease associated with (C1) high CFR (24-88%) (C1). In the early course of the disease, (C2) clinical diagnosis of MVD is challenging to distinguish from other infectious diseases such as malaria, typhoid fever, shigellosis, meningitis, and other viral haemorrhagic fevers (C2).
+
+2. Extracted causes and effects:
+C1: high CFR (24-88%) -> E1: MVD is an epidemic-prone disease, Causality type: T1
+C2: clinical diagnosis of MVD is challenging to distinguish from other infectious diseases -> E2: [No direct effect related to disease transmission or emergence], Causality type: [Irrelevant causality]
+
+
+
+## API Response for Article ID 2024-DON537:
+
+1. Raw text with marked causes and effects:
+Epidemiologic features can help differentiate between viral hemorrhagic fevers (including history of exposure to bats, caves, or mining) and laboratory testing is important to confirm the diagnosis. The notification of 26 confirmed cases, of which over 70% are healthcare workers from two different health facilities in the country is of great concern. (C1) Healthcare-associated infections (also known as nosocomial infections) of this disease (C1) can lead to (E1) further spread (E1) if not controlled early. The importance of screening all persons entering health facilities as well as inpatient surveillance for prompt identification, isolation, and notification cannot be overemphasized.
+
+2. Extracted causes and effects:
+C1: Healthcare-associated infections (also known as nosocomial infections) of this disease -> E1: further spread, Causality type: T1
+
+
+
+## API Response for Article ID 2024-DON537:
+
+1. Raw text with marked causes and effects:
+This is in addition to the importance of contact identification and monitoring of all probable and confirmed cases. The source of the outbreak, geographical extent, the likely date of onset, and additional epidemiological information on cases are still pending further outbreak investigation. There is a (E1) risk of this outbreak spreading to neighbouring countries (E1) since (C1) cases have been reported in districts located at the borders with the Democratic Republic of the Congo, the United Republic of Tanzania, and Uganda (C1). Further (E2) risk of international spread (E2) is also high as (C2) confirmed cases have been reported in the capital city with an international airport and road networks to several cities in East Africa (C2).
+
+2. Extracted causes and effects:
+C1: cases have been reported in districts located at the borders with the Democratic Republic of the Congo, the United Republic of Tanzania, and Uganda -> E1: risk of this outbreak spreading to neighbouring countries, Causality type: T1
+C2: confirmed cases have been reported in the capital city with an international airport and road networks to several cities in East Africa -> E2: risk of international spread, Causality type: T1
+
+
+
+## API Response for Article ID 2024-DON537:
+
+1. Raw text with marked causes and effects:
+A contact is known to have travelled internationally, to Belgium, and appropriate response measures have been implemented. Optimized supportive care for patients, which includes careful monitoring, intravenous fluid, and early treatment of complications, can improve (E1) patient survival (E1). There are promising vaccines and therapeutic candidates for MVD, but these must be proven in clinical trials.
+
+2. Extracted causes and effects:
+C1: Optimized supportive care for patients, which includes careful monitoring, intravenous fluid, and early treatment of complications -> E1: patient survival, Causality type: T1
+
+
+
+## API Response for Article ID 2024-DON537:
+
+1. Raw text with marked causes and effects:
+&nbsp;WHO has provided guidance to the Ministry of Health on how to manage cases. WHO assesses the risk of this outbreak as very high at the national level, high at the regional level, and low at the global level.&nbsp; Investigations are ongoing to determine the full extent of the outbreak and this risk assessment will be updated as more information is received.&nbsp;&nbsp;.
+
+2. Extracted causes and effects:
+There are no relevant causes and effects related to the emergence or transmission of pests and pathogens in the provided text.
+
+
+
+## API Response for Article ID 2024-DON534:
+
+1. Raw text with marked causes and effects:
+This is the first human case of infection with a zoonotic influenza virus notified by Ghana. Laboratory testing confirmed the virus as an influenza A(H9N2) virus. The majority of human infections with A(H9N2) viruses occur due to (C1) contact with infected poultry or environments that have been contaminated (C1) and typically result in (E1) mild clinical symptoms (E1). Further human cases in persons with (C1) exposure to the virus in infected animals or through contaminated environments (C1) can be expected since the virus continues to be detected in poultry populations.
+
+2. Extracted causes and effects:
+C1: contact with infected poultry or environments that have been contaminated -> E1: mild clinical symptoms, Causality type: T1
+C1: exposure to the virus in infected animals or through contaminated environments -> E1: further human cases, Causality type: T1
+
+
+
+## API Response for Article ID 2024-DON534:
+
+1. Raw text with marked causes and effects:
+To date, there has been no reported sustained human-to-human transmission humans of A(H9N2) viruses. The existing epidemiological and virological evidence suggests that (C1) this virus has not acquired the capacity for sustained transmission among humans (C1). Thus, the (E1) likelihood of sustained human-to-human spread (E1) is low. Should infected individuals from affected areas travel internationally, their (E2) infection (E2) may be detected in another country during travel or after arrival.
+
+2. Extracted causes and effects:
+C1: this virus has not acquired the capacity for sustained transmission among humans -> E1: likelihood of sustained human-to-human spread is low, Causality type: T1
+
+
+
+## API Response for Article ID 2024-DON534:
+
+1. Raw text with marked causes and effects:
+However, if this occurs, further (E1) community-level spread (E1) is considered unlikely.
+
+2. Extracted causes and effects:
+No relevant causality related to disease transmission or emergence is present in the text.
+
+
+
+## API Response for Article ID 2024-DON532:
+
+1. Raw text with marked causes and effects:
+Human infections with swine-origin influenza viruses have been reported in recent years from many countries. Most human cases with influenza A(H1N1)v virus infection result from (C1) exposure to swine influenza viruses through direct contact with infected swine (C1) or (C1) indirectly through contaminated environments (C1). However, a few cases have been reported without an apparent source of exposure to swine in the weeks prior to illness onset.
+
+2. Extracted causes and effects:
+C1: exposure to swine influenza viruses through direct contact with infected swine -> E1: human cases with influenza A(H1N1)v virus infection, Causality type: T3
+C1: indirectly through contaminated environments -> E1: human cases with influenza A(H1N1)v virus infection, Causality type: T3
+
+
+
+## API Response for Article ID 2024-DON532:
+
+1. Raw text with marked causes and effects:
+Because these viruses continue to be detected in swine populations worldwide, further human cases following direct or indirect contact with infected swine can be expected. Limited, non-sustained human-to-human transmission of variant influenza viruses has been described, although ongoing community transmission has never been identified. Current evidence suggests that these viruses have not acquired the capacity for sustained transmission among humans.
+
+2. Extracted causes and effects:
+No relevant causality related to disease transmission or emergence is identified in the input text.
+
+
+
+## API Response for Article ID 2024-DON532:
+
+1. Raw text with marked causes and effects:
+According to the information available thus far, no further human cases of infection with A(H1N1)v viruses associated with this case have been detected. Based on the available information, WHO assesses the current (E1) risk to the general population posed by this virus to be low (E1). Further virus characterization is ongoing. The (E1) risk assessment (E1) will be reviewed should further epidemiological or virological information become available.
+
+2. Extracted causes and effects:
+No relevant causality related to disease transmission or emergence is identified in the input text.
+
