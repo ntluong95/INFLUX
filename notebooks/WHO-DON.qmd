@@ -113,7 +113,6 @@ all_news_df %>%
   rio::export(here("data", "who_dons.csv"))
 ```
 
-
 ## Pivot data into long format
 
 ```{r}
