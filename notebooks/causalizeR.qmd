@@ -271,3 +271,11 @@ There are 2 mains data structure:
 
 The first step, though, is to tokenize. -->
 
+```{r}
+reticulate::use_virtualenv(here::here(".venv"))
+reticulate::repl_python()
+```
+
+```{python}
+import pandas as pd
+```
