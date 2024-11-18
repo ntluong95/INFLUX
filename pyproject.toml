@@ -1,25 +1,16 @@
-[tool.poetry]
+[project]
 name = "influx"
 version = "0.1.0"
-description = ""
-authors = ["Luong Nguyen Thanh <ph.ntluong95@gmail.com>"]
+description = "Add your description here"
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.12"
-ipykernel = "^6.29.5"
-openai = "^1.45.1"
-tqdm = "^4.66.5"
-pandas = "^2.2.2"
-matplotlib = "^3.9.2"
-ipython = "^8.27.0"
-python-dotenv = "^1.0.1"
-scikit-learn = "^1.5.2"
-sentence-transformers = "^3.1.0"
-google-generativeai = "^0.8.1"
-causal-chains = {git = "https://github.com/helliun/causal-chains.git"}
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = ">=3.13.0"
+dependencies = [
+    "ipykernel>=6.29.5",
+    "matplotlib>=3.9.2",
+    "openai==1.45.1",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.3",
+    "python-dotenv>=1.0.1",
+    "scikit-learn==1.5.2",
+    "tqdm==4.66.5",
+]

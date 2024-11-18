@@ -17,4 +17,5 @@ notebooks/.env
 /_build/
 CRE_workshop_materials.zip
 /index_files/
-.venv.Renviron
+.venv*/
+.Renviron
