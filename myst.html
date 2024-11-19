@@ -1,0 +1,222 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Check if the current URL contains '/notebooks/'
+    if (window.location.pathname.includes('/notebooks/')) {
+      console.log("Subpage detected. Hiding the banner.");
+      // Select the element with the class 'quarto-title-banner page-columns page-full'
+      var titleBanner = document.querySelector(".quarto-title-banner.page-columns.page-full");
+
+      // If the element exists, hide it
+      if (titleBanner) {
+        titleBanner.style.display = 'none';
+      }
+    } else {
+      // Main page specific code
+      const newElement = document.createElement('div');
+      newElement.className = "align-middle";
+      newElement.innerHTML = `
+          <div class="quarto-title-meta"> 
+              <div class="quarto-title-meta-column-start"> 
+                  <div class="manuscript-info"> 
+                      <div class="flex-none pr-2 smallcaps">Manuscript</div>
+                      <div class="flex-none mr-2 pl-2 smallcaps"> 
+                      <span class="font-semibold">A preprint version</span> 
+                  </div>
+              </div>
+          </div>
+              <div class="quarto-title-meta-column-icon"> 
+              <div class="science-info sm:block"> 
+                  <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-100 text-inherit hover:text-inherit" aria-label="Content License: Creative Commons Attribution Share Alike 3.0 Unported (CC-BY-SA-3.0)">
+                  <img class="science-icon inline-block mx-1" src="https://raw.githubusercontent.com/ntluong95/data/main/cc.svg" alt="CC BY-SA 3.0" />
+                  <img class="science-icon inline-block mr-1" src="https://raw.githubusercontent.com/ntluong95/data/main/by.svg" alt="Credit must be given to the creator" />
+                  <img class="science-icon inline-block mr-1" src="https://raw.githubusercontent.com/ntluong95/data/main/sa.svg" alt="Adaptations must be shared under the same terms" />
+                  </a>
+                  <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" title="Code License: MIT License (MIT)" class="text-inherit hover:text-inherit">
+                  <img class="science-icon mx-1 inline-block opacity-60 hover:opacity-100 hover:text-[#599F46]" src="https://raw.githubusercontent.com/ntluong95/data/main/mit.svg" alt="MIT License" />
+                  </a>
+                  <a href="https://en.wikipedia.org/wiki/Open_access" target="_blank" rel="noopener noreferrer" title="Open Access" class="text-inherit hover:text-inherit">
+                  <img class="science-icon mr-1 inline-block opacity-60 hover:opacity-100 hover:text-[#E18435]" src="https://raw.githubusercontent.com/ntluong95/data/main/open-access.svg" alt="Open Access" />
+                  </a>
+                  <a href="https://github.com/ntluong95/INFLUX" title="GitHub Repository: ntluong95/INFLUX" target="_blank" rel="noopener noreferrer" class="text-inherit hover:text-inherit">
+                  <img class="science-icon inline-block mr-1 opacity-60 hover:opacity-100" src="https://raw.githubusercontent.com/ntluong95/data/main/github.svg" alt="GitHub Repository" />
+                  </a>
+              </div> 
+          </div>
+      </div>
+      `;
+
+      // Find the target element (the container for the icons) and insert the new element
+      const targetElement = document.querySelector('.column-body'); 
+      targetElement.parentNode.insertBefore(newElement, targetElement); 
+
+      const columnStart = document.querySelector('.quarto-title-meta-column-start');
+      const metaElement = columnStart.querySelector('.quarto-title-meta'); // Select the nested element
+
+      if (metaElement) {
+          columnStart.parentNode.insertBefore(metaElement, columnStart.nextSibling); // Move it outside 
+      }
+
+      // Select the abstract and keywords sections
+      var abstractElement = document.querySelector(".abstract");
+      var keywordsElement = document.querySelector(".keywords");
+
+      // Select the introduction heading
+      var introductionHeading = document.querySelector(
+        'h2[data-anchor-id="sec-introduction"]'
+      );
+
+      if (abstractElement && introductionHeading) {
+        // Create the new structure for the abstract section
+        var newAbstractContainer = document.createElement("div");
+        var newAbstractTitle = document.createElement("h3");
+        newAbstractTitle.id = "abstract";
+        newAbstractTitle.className = "mb-3 text-base font-semibold group";
+        newAbstractTitle.innerHTML =
+          'Abstract<a class="no-underline text-inherit hover:text-inherit ml-2 select-none transition-opacity opacity-0 focus:opacity-100 group-hover:opacity-70" href="#abstract" title="Link to Abstract" aria-label="Link to Abstract">¶</a>';
+
+        var newAbstractContent = document.createElement("div");
+        newAbstractContent.className =
+          "px-6 py-1 mb-3 rounded-sm bg-slate-50 dark:bg-slate-800";
+
+        var newAbstractInnerContent = document.createElement("div");
+        newAbstractInnerContent.id = "soTooQ8JmG";
+        newAbstractInnerContent.className = "relative group/block col-body";
+
+        // Move the actual abstract content
+        var abstractParagraph = abstractElement.querySelector("p");
+        newAbstractInnerContent.appendChild(abstractParagraph);
+
+        // Append all new elements to the new abstract container
+        newAbstractContent.appendChild(newAbstractInnerContent);
+        newAbstractContainer.appendChild(newAbstractTitle);
+        newAbstractContainer.appendChild(newAbstractContent);
+
+        // Insert the new abstract container before the introduction heading
+        introductionHeading.parentNode.insertBefore(
+          newAbstractContainer,
+          introductionHeading
+        );
+
+        // Remove the old abstract element
+        abstractElement.remove();
+
+        // Move the keywords section if it exists
+        if (keywordsElement) {
+          introductionHeading.parentNode.insertBefore(
+            keywordsElement,
+            introductionHeading
+          );
+        }
+      }
+
+      // Redesign author display
+
+      const container = document.querySelector(".quarto-title-meta-author");
+      const contents = container.querySelectorAll(".quarto-title-meta-contents");
+      const newContainer = document.createElement("div");
+      newContainer.classList.add("quarto-title-meta-contents");
+      const popup = document.createElement("div");
+      popup.id = "affiliation-popup";
+      popup.classList.add("popup");
+      document.body.appendChild(popup);
+
+      let currentOpenPopup = null;
+
+      for (let i = 0; i < contents.length; i++) {
+        const content = contents[i];
+        const authorElement = content.querySelector(".author");
+
+        if (authorElement) {
+          newContainer.appendChild(authorElement);
+
+          const affiliationContent = document.createElement("div");
+          affiliationContent.classList.add("popup-content");
+          if (i + 1 < contents.length) {
+            const nextContent = contents[i + 1];
+            const affiliations = nextContent.querySelectorAll(".affiliation");
+            affiliations.forEach((affiliation) =>
+              affiliationContent.appendChild(affiliation.cloneNode(true))
+            );
+            i++;
+          }
+
+          authorElement.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (currentOpenPopup) {
+              currentOpenPopup.classList.remove("active");
+            }
+            currentOpenPopup = popup;
+
+            popup.innerHTML = "";
+            const popupHeader = document.createElement("h3");
+            popupHeader.innerText = authorElement.textContent.trim();
+            popup.appendChild(popupHeader);
+            popup.appendChild(affiliationContent.cloneNode(true));
+            popup.style.visibility = "hidden";
+            popup.classList.add("active");
+
+            const rect = authorElement.getBoundingClientRect();
+            const popupWidth = popup.offsetWidth;
+            const maxLeft = window.innerWidth - popupWidth;
+            const popupLeft = Math.min(
+              Math.max(0, rect.left + rect.width / 2 - popupWidth / 2),
+              maxLeft
+            );
+
+            popup.style.left = popupLeft + "px";
+            popup.style.top = rect.bottom + window.scrollY + "px";
+            popup.style.visibility = "visible";
+          });
+        }
+      }
+
+      document.addEventListener("click", function (event) {
+        if (
+          currentOpenPopup &&
+          !currentOpenPopup.contains(event.target) &&
+          !event.target.closest(".quarto-title-meta-author")
+        ) {
+          currentOpenPopup.classList.remove("active");
+          currentOpenPopup = null;
+        }
+      });
+
+      container.innerHTML = "";
+      container.appendChild(newContainer);
+
+      // Remove blank div inside quarto-title-banner
+
+      var titleBanner = document.querySelector(".quarto-title-banner");
+
+      if (titleBanner) {
+        // Select all div elements inside the quarto-title-banner
+        var divs = titleBanner.querySelectorAll("div");
+
+        divs.forEach(function (div) {
+          // Check if the div is empty
+          if (!div.innerHTML.trim()) {
+            // Remove the empty div
+            div.remove();
+          }
+        });
+      }
+
+      const metaAuthor = document.querySelector('.quarto-title-meta-author'); 
+      const metaColumnStart = metaAuthor.nextElementSibling; // Get the element right after the author section
+      const otherFormatsTarget = document.querySelector('.quarto-title-meta-column-end.quarto-other-formats-target');
+
+      if (metaColumnStart && otherFormatsTarget) { // Add a check for the existence of elements
+          // Append the 'otherFormatsTarget' element to the 'metaColumnStart' element
+          metaColumnStart.appendChild(otherFormatsTarget);
+
+          // Optionally, adjust the styling
+          otherFormatsTarget.style.display = 'inline-block';
+          otherFormatsTarget.style.marginLeft = '20px'; // Add some spacing
+      } else {
+          console.warn("One or more required elements were not found."); 
+      }
+    }
+  });
+</script>
