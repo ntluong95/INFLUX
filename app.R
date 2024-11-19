@@ -11,7 +11,7 @@ pacman::p_load(
   viridis
 )
 
-result_df <- import(here("notebooks", "cosine_test_31 Oct.csv"))
+result_df <- import(here("notebooks", "cosine_test_31 Oct.csv")) #import new data
 
 ui <- page_sidebar(
   title = "Network Analysis Visualization",
