@@ -4,12 +4,22 @@
 
 ```{r}
 pacman::p_load(
-  rio,
-  here,
+  rio,          # File import
+  here,         # File locator
+  arrow,
+  reticulate,
   httr,
   jsonlite,
   stringr,
-  tidyverse)
+  tidyverse     # data management + ggplot2 graphics
+)
+
+use_virtualenv(here::here(".venv"))
+# arrow::install_pyarrow() # need to install pip
+Sys.setenv(RETICULATE_PYTHON = here::here(".venv"))
+
+repl_python()
+
 ```
 
 ## Write a function to get data from WHO-DON website
